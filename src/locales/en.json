@@ -18,7 +18,9 @@
   "common": {
     "readMore": "Read more",
     "readingTime": "min read",
-    "publishedOn": "Published on"
+    "minRead": "min read",
+    "publishedOn": "Published on",
+    "loading": "Loading"
   },
   "header": {
     "tagline": "Journalist | Storyteller | Analyst",
@@ -86,12 +88,106 @@
     "by": "By",
     "tags": "Tags",
     "share": "Share",
-    "relatedArticles": "You might also like"
+    "relatedArticles": "You might also like",
+    "shareArticle": "Share Article",
+    "shareOn": "Share on {platform}",
+    "copyLink": "Copy Link",
+    "linkCopied": "Link copied!",
+    "teams": "Teams",
+    "competition": "Competition",
+    "matchDate": "Match Date",
+    "result": "Result",
+    "gpName": "Grand Prix",
+    "circuit": "Circuit",
+    "date": "Date",
+    "raceCategory": "Category",
+    "platinumAchieved": "PLATINUM ACHIEVED",
+    "platinumDescription": "Platinum trophy unlocked",
+    "author": "Author",
+    "genre": "Genre",
+    "pages": "Pages",
+    "dateRead": "Read on",
+    "rating": "Rating",
+    "currentlyReading": "Currently Reading",
+    "progress": "Progress",
+    "director": "Director",
+    "releaseYear": "Year",
+    "runtime": "Runtime",
+    "whereWatched": "Watched on",
+    "creator": "Creator",
+    "seasons": "seasons",
+    "episodes": "episodes",
+    "platform": "Platform",
+    "status": "Status",
+    "seasonsEpisodes": "Seasons/Episodes",
+    "destination": "Destination",
+    "tripDuration": "Trip Duration",
+    "budget": "Budget"
+  },
+  "latest": {
+    "title": "Latest Articles",
+    "description": "All recent articles from all categories",
+    "allCategories": "All Categories",
+    "filterByCategory": "Filter by category",
+    "noArticles": "No articles available.",
+    "noArticlesFiltered": "No articles match the selected filters."
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Sports Journalist & Content Creator",
+    "bio": "Hi! I'm Rui Lopes, an aspiring sports journalist with a passion for storytelling. Here you'll find my tactical football analysis, MotoGP coverage, gaming reviews, film and TV series critiques, book reflections, and travel guides.",
+    "bioExtended": "My journey in sports journalism is driven by a desire to offer unique perspectives and in-depth analysis. I believe sport is more than just results - it's human stories, complex tactics, and moments that unite us.",
+    "skills": "Skills",
+    "skillsList": {
+      "writing": "Writing and storytelling",
+      "analysis": "Sports and tactical analysis",
+      "research": "Research and fact-checking",
+      "bilingual": "Bilingual communication (PT/EN)"
+    },
+    "ctaButton": "Read My Articles",
+    "getInTouch": "Get In Touch"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk",
+    "description": "Have a project, opportunity, or just want to chat? Get in touch!",
+    "email": "Email",
+    "emailLabel": "Send Email",
+    "socialLabel": "Social Media",
+    "followMe": "Follow me on social media"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "categories": {
+      "football": "Football",
+      "motogp": "MotoGP",
+      "gaming": "Gaming",
+      "books": "Books",
+      "movies": "Movies",
+      "tvshows": "TV Shows",
+      "travel": "Travel"
+    }
   },
   "actions": {
     "viewAll": "View all",
     "loadMore": "Load more",
     "goBack": "Go back"
+  },
+  "category": {
+    "filterByTag": "Filter by tag",
+    "clearFilters": "Clear filters",
+    "activeFilters": "{count} active filters",
+    "sortBy": "Sort by",
+    "sortLatest": "Latest",
+    "sortOldest": "Oldest",
+    "noArticles": "No articles found in this category.",
+    "noArticlesFiltered": "No articles match the selected filters.",
+    "articleCount": "{count, plural, =0 {No articles} one {1 article} other {# articles}}",
+    "filterByLanguage": "Filter by language",
+    "allLanguages": "All",
+    "viewMode": "View mode",
+    "gridView": "Grid",
+    "listView": "List"
   },
   "categoryPages": {
     "comingSoon": "Coming soon",

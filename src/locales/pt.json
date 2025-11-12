@@ -18,7 +18,9 @@
   "common": {
     "readMore": "Ler mais",
     "readingTime": "min de leitura",
-    "publishedOn": "Publicado em"
+    "minRead": "min de leitura",
+    "publishedOn": "Publicado em",
+    "loading": "A carregar"
   },
   "header": {
     "tagline": "Jornalista | Contador de Histórias | Analista",
@@ -86,12 +88,106 @@
     "by": "Por",
     "tags": "Tags",
     "share": "Partilhar",
-    "relatedArticles": "Podes também gostar"
+    "relatedArticles": "Podes também gostar",
+    "shareArticle": "Partilhar Artigo",
+    "shareOn": "Partilhar em {platform}",
+    "copyLink": "Copiar Link",
+    "linkCopied": "Link copiado!",
+    "teams": "Equipas",
+    "competition": "Competição",
+    "matchDate": "Data do Jogo",
+    "result": "Resultado",
+    "gpName": "Grande Prémio",
+    "circuit": "Circuito",
+    "date": "Data",
+    "raceCategory": "Categoria",
+    "platinumAchieved": "PLATINA CONQUISTADA",
+    "platinumDescription": "Troféu de platina desbloqueado",
+    "author": "Autor",
+    "genre": "Género",
+    "pages": "Páginas",
+    "dateRead": "Lido em",
+    "rating": "Avaliação",
+    "currentlyReading": "A Ler Atualmente",
+    "progress": "Progresso",
+    "director": "Realizador",
+    "releaseYear": "Ano",
+    "runtime": "Duração",
+    "whereWatched": "Visto em",
+    "creator": "Criador",
+    "seasons": "temporadas",
+    "episodes": "episódios",
+    "platform": "Plataforma",
+    "status": "Estado",
+    "seasonsEpisodes": "Temporadas/Episódios",
+    "destination": "Destino",
+    "tripDuration": "Duração da Viagem",
+    "budget": "Orçamento"
+  },
+  "latest": {
+    "title": "Últimos Artigos",
+    "description": "Todos os artigos recentes de todas as categorias",
+    "allCategories": "Todas as Categorias",
+    "filterByCategory": "Filtrar por categoria",
+    "noArticles": "Nenhum artigo disponível.",
+    "noArticlesFiltered": "Nenhum artigo corresponde aos filtros selecionados."
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "subtitle": "Jornalista Desportivo & Criador de Conteúdo",
+    "bio": "Olá! Sou o Rui Lopes, um aspirante a jornalista desportivo com paixão por contar histórias. Aqui encontrarás as minhas análises táticas de futebol, cobertura de MotoGP, reviews de gaming, críticas de filmes e séries, reflexões sobre livros e guias de viagem.",
+    "bioExtended": "A minha jornada no jornalismo desportivo é impulsionada pela vontade de oferecer perspetivas únicas e análises aprofundadas. Acredito que o desporto é mais do que resultados - são histórias humanas, táticas complexas e momentos que nos unem.",
+    "skills": "Competências",
+    "skillsList": {
+      "writing": "Escrita e storytelling",
+      "analysis": "Análise desportiva e tática",
+      "research": "Pesquisa e fact-checking",
+      "bilingual": "Comunicação bilingue (PT/EN)"
+    },
+    "ctaButton": "Ler os Meus Artigos",
+    "getInTouch": "Entra em Contacto"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Vamos conversar",
+    "description": "Tens um projeto, oportunidade ou simplesmente queres conversar? Entra em contacto!",
+    "email": "Email",
+    "emailLabel": "Enviar Email",
+    "socialLabel": "Redes Sociais",
+    "followMe": "Segue-me nas redes sociais"
+  },
+  "breadcrumbs": {
+    "home": "Início",
+    "categories": {
+      "football": "Futebol",
+      "motogp": "MotoGP",
+      "gaming": "Gaming",
+      "books": "Livros",
+      "movies": "Filmes",
+      "tvshows": "Séries",
+      "travel": "Viagens"
+    }
   },
   "actions": {
     "viewAll": "Ver todos",
     "loadMore": "Carregar mais",
     "goBack": "Voltar"
+  },
+  "category": {
+    "filterByTag": "Filtrar por tag",
+    "clearFilters": "Limpar filtros",
+    "activeFilters": "{count} filtros ativos",
+    "sortBy": "Ordenar por",
+    "sortLatest": "Mais recentes",
+    "sortOldest": "Mais antigos",
+    "noArticles": "Nenhum artigo encontrado nesta categoria.",
+    "noArticlesFiltered": "Nenhum artigo corresponde aos filtros selecionados.",
+    "articleCount": "{count, plural, =0 {Nenhum artigo} one {1 artigo} other {# artigos}}",
+    "filterByLanguage": "Filtrar por idioma",
+    "allLanguages": "Todos",
+    "viewMode": "Modo de visualização",
+    "gridView": "Grelha",
+    "listView": "Lista"
   },
   "categoryPages": {
     "comingSoon": "Em breve",
