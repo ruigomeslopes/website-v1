@@ -1,0 +1,22 @@
+{
+  "navigation": {
+    "home": "Home",
+    "latest": "Latest",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "categories": {
+    "football": "Football",
+    "motogp": "MotoGP",
+    "gaming": "Gaming",
+    "books": "Books",
+    "movies": "Movies",
+    "tvshows": "TV Shows",
+    "travel": "Travel"
+  },
+  "common": {
+    "readMore": "Read more",
+    "readingTime": "min read",
+    "publishedOn": "Published on"
+  }
+}
