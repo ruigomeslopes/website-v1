@@ -47,6 +47,22 @@ const config: Config = {
         '3xl': 'var(--text-3xl)',
         '4xl': 'var(--text-4xl)',
       },
+      boxShadow: {
+        sm: 'var(--shadow-sm)',
+        md: 'var(--shadow-md)',
+        lg: 'var(--shadow-lg)',
+      },
+      transitionDuration: {
+        fast: '150ms',
+        base: '250ms',
+        slow: '350ms',
+      },
+      maxWidth: {
+        container: 'var(--container-max-width)',
+      },
+      spacing: {
+        header: 'var(--header-height)',
+      },
     },
   },
   plugins: [
