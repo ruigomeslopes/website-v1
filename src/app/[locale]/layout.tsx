@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Merriweather } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, unstable_setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { locales } from '@/i18n'
 import Header from '@/components/layout/Header'
@@ -23,6 +23,7 @@ const merriweather = Merriweather({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ruilopes.github.io/rl-v1'),
   title: 'Rui Lopes - Sports Journalist',
   description: 'Personal website and blog of Rui Lopes, aspiring sports journalist',
 }
@@ -46,8 +47,11 @@ export default async function LocaleLayout({
     notFound()
   }
 
-  // Get messages for the current locale
-  const messages = await getMessages()
+  // Enable static rendering for this locale
+  unstable_setRequestLocale(locale);
+
+  // Get messages for the current locale - explicitly pass locale for static generation
+  const messages = await getMessages({ locale })
 
   return (
     <html lang={locale} className={`${inter.variable} ${merriweather.variable}`}>
