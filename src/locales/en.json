@@ -18,5 +18,77 @@
     "readMore": "Read more",
     "readingTime": "min read",
     "publishedOn": "Published on"
+  },
+  "header": {
+    "tagline": "Journalist | Storyteller | Analyst",
+    "switchLanguage": "Switch to Portuguese"
+  },
+  "footer": {
+    "copyright": "© 2025 Rui Lopes. All rights reserved.",
+    "followMe": "Follow me"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "portuguese": "Português",
+    "english": "English",
+    "current": "Current language",
+    "switchTo": "Switch to {language}"
+  },
+  "homepage": {
+    "title": "Rui Lopes",
+    "subtitle": "Sports Journalist & Content Creator",
+    "welcome": "Welcome to my digital space",
+    "exploreArticles": "Explore Articles",
+    "latestWork": "Latest Work",
+    "nextSteps": "Next Steps",
+    "phase1Complete": "Phase 1 Complete",
+    "phase2Complete": "Phase 2 Complete",
+    "phase3Complete": "Phase 3 Complete",
+    "designSystemReady": "Design System Ready",
+    "i18nReady": "i18n Ready",
+    "implementationProgress": "Implementation Progress",
+    "componentShowcase": "Component Showcase",
+    "themeToggleNote": "Try the theme toggle in the top-right corner! The preference will persist.",
+    "buttons": "Buttons",
+    "badges": "Badges",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "ghost": "Ghost",
+    "default": "Default",
+    "category": "Category",
+    "warning": "Warning",
+    "error": "Error",
+    "continueToPhase": "Continue to Phase {phase}"
+  },
+  "article": {
+    "by": "By",
+    "tags": "Tags",
+    "share": "Share",
+    "relatedArticles": "You might also like"
+  },
+  "actions": {
+    "viewAll": "View all",
+    "loadMore": "Load more",
+    "goBack": "Go back"
+  },
+  "categoryPages": {
+    "comingSoon": "Coming soon",
+    "placeholder": "This category page will be implemented in Phase 6",
+    "backToHome": "Back to Home"
+  },
+  "setup": {
+    "nextjsSetup": "Next.js 14 + TypeScript setup",
+    "tailwindConfigured": "Tailwind CSS configured",
+    "designSystem": "Design System with CSS Variables",
+    "themeToggle": "Light/Dark theme toggle",
+    "googleFonts": "Google Fonts (Inter + Merriweather)",
+    "uiComponents": "UI Components (Button, Card, Badge, Container)",
+    "i18nSupport": "Bilingual support (PT/EN)",
+    "languageToggle": "Language toggle",
+    "routingStructure": "Routing structure with [locale]"
   }
 }
