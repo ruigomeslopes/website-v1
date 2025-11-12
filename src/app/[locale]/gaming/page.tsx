@@ -7,12 +7,13 @@ import { Article } from '@/types/article';
 export const dynamic = 'force-static';
 
 interface GamingPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export default async function GamingPage({ params: { locale } }: GamingPageProps) {
+export default async function GamingPage({ params }: GamingPageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   const articleListItems = await getArticlesByCategory('gaming', locale as 'pt' | 'en');

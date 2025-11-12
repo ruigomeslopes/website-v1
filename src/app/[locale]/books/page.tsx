@@ -7,12 +7,13 @@ import { Article } from '@/types/article';
 export const dynamic = 'force-static';
 
 interface BooksPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export default async function BooksPage({ params: { locale } }: BooksPageProps) {
+export default async function BooksPage({ params }: BooksPageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   const articleListItems = await getArticlesByCategory('books', locale as 'pt' | 'en');

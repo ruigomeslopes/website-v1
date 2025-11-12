@@ -7,12 +7,13 @@ import { Article } from '@/types/article';
 export const dynamic = 'force-static';
 
 interface MotoGPPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export default async function MotoGPPage({ params: { locale } }: MotoGPPageProps) {
+export default async function MotoGPPage({ params }: MotoGPPageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   const articleListItems = await getArticlesByCategory('motogp', locale as 'pt' | 'en');

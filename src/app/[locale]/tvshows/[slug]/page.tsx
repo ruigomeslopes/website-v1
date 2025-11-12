@@ -12,10 +12,10 @@ import StructuredData from '@/components/StructuredData';
 import { Article } from '@/types/article';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     locale: 'pt' | 'en';
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for all articles
@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { locale, slug } = params;
+  const { locale, slug } = await params;
 
   // Enable static rendering for this page
   unstable_setRequestLocale(locale);
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function TVShowsArticlePage({ params }: PageProps) {
-  const { locale, slug } = params;
+  const { locale, slug } = await params;
 
   // Enable static rendering for this page
   unstable_setRequestLocale(locale);

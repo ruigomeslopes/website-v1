@@ -13,9 +13,9 @@ export function generateStaticParams() {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { locale: 'pt' | 'en' } }
+  { params }: { params: Promise<{ locale: string }> }
 ) {
-  const { locale } = params
+  const { locale } = await params as { locale: 'pt' | 'en' }
 
   // Collect all articles from all categories for this locale
   const allArticles: Array<{

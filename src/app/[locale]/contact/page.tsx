@@ -11,12 +11,13 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 interface ContactPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export async function generateMetadata({ params: { locale } }: ContactPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ContactPageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'contact' });
 
   return {
@@ -142,7 +143,8 @@ function ContactPageContent() {
   );
 }
 
-export default async function ContactPage({ params: { locale } }: ContactPageProps) {
+export default async function ContactPage({ params }: ContactPageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   return <ContactPageContent />;

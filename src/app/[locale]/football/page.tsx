@@ -7,12 +7,13 @@ import { Article } from '@/types/article';
 export const dynamic = 'force-static';
 
 interface FootballPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export default async function FootballPage({ params: { locale } }: FootballPageProps) {
+export default async function FootballPage({ params }: FootballPageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   // Fetch articles server-side

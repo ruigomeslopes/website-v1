@@ -9,12 +9,13 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 interface LatestPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export async function generateMetadata({ params: { locale } }: LatestPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: LatestPageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'latest' });
 
   return {
@@ -34,7 +35,8 @@ export async function generateMetadata({ params: { locale } }: LatestPageProps):
   };
 }
 
-export default async function LatestPage({ params: { locale } }: LatestPageProps) {
+export default async function LatestPage({ params }: LatestPageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   // Fetch all articles from all categories server-side

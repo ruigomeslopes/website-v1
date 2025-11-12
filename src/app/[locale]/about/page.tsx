@@ -13,12 +13,13 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 interface AboutPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export async function generateMetadata({ params: { locale } }: AboutPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: AboutPageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about' });
 
   return {
@@ -192,7 +193,8 @@ function AboutPageContent({ locale }: { locale: string }) {
   );
 }
 
-export default async function AboutPage({ params: { locale } }: AboutPageProps) {
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   return <AboutPageContent locale={locale} />;

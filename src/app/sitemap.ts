@@ -6,6 +6,9 @@ import type { Category } from '@/types/article'
 const baseUrl = 'https://ruilopes.github.io/rl-v1'
 const categories: Category[] = ['football', 'motogp', 'gaming', 'books', 'movies', 'tvshows', 'travel']
 
+// Force static export for GitHub Pages
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const sitemap: MetadataRoute.Sitemap = []
 

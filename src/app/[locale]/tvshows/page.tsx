@@ -7,12 +7,13 @@ import { Article } from '@/types/article';
 export const dynamic = 'force-static';
 
 interface TVShowsPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export default async function TVShowsPage({ params: { locale } }: TVShowsPageProps) {
+export default async function TVShowsPage({ params }: TVShowsPageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   const articleListItems = await getArticlesByCategory('tvshows', locale as 'pt' | 'en');
