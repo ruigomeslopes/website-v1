@@ -1,46 +1,43 @@
-import { useTranslations } from 'next-intl'
-import { Container } from '@/components/ui/Container'
-import { Card, CardBody } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
-import { Badge } from '@/components/ui/Badge'
-import Link from 'next/link'
+import { unstable_setRequestLocale } from 'next-intl/server';
+import { getArticlesByCategory } from '@/lib/articles';
+import CategoryPageClient from '@/components/article/CategoryPageClient';
+import { Article } from '@/types/article';
 
 // Force static export for GitHub Pages
-export const dynamic = 'force-static'
+export const dynamic = 'force-static';
 
-export default function FootballPage() {
-  const t = useTranslations()
+interface FootballPageProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function FootballPage({ params: { locale } }: FootballPageProps) {
+  unstable_setRequestLocale(locale);
+
+  // Fetch articles server-side
+  const articleListItems = await getArticlesByCategory('football', locale as 'pt' | 'en');
+
+  // Convert ArticleListItem to Article format for the client component
+  const articles: Article[] = articleListItems.map((item) => ({
+    frontmatter: item.frontmatter as any, // Cast to full ArticleFrontmatter
+    content: '', // We don't need full content for listing
+    readingTime: item.readingTime,
+    slug: item.slug,
+    locale: locale as 'pt' | 'en',
+  }));
 
   return (
-    <main className="min-h-screen py-16">
-      <Container size="md">
-        <div className="text-center mb-8">
-          <Badge variant="category" className="mb-4">
-            ⚽ {t('categories.football')}
-          </Badge>
-          <h1 className="font-heading text-4xl font-bold mb-4">
-            {t('categories.football')}
-          </h1>
-        </div>
+    <CategoryPageClient
+      initialArticles={articles}
+      categoryKey="football"
+      categoryIcon="⚽"
+      locale={locale}
+    />
+  );
+}
 
-        <Card variant="outlined">
-          <CardBody>
-            <div className="text-center space-y-4">
-              <p className="text-xl font-medium text-text-secondary">
-                {t('categoryPages.comingSoon')}
-              </p>
-              <p className="text-text-tertiary">
-                {t('categoryPages.placeholder')}
-              </p>
-              <Link href="/">
-                <Button variant="primary">
-                  {t('categoryPages.backToHome')}
-                </Button>
-              </Link>
-            </div>
-          </CardBody>
-        </Card>
-      </Container>
-    </main>
-  )
+// Generate static params for both locales
+export async function generateStaticParams() {
+  return [{ locale: 'pt' }, { locale: 'en' }];
 }
