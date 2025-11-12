@@ -1,6 +1,9 @@
 # Decap CMS Configuration
 # Documentation: https://decapcms.org/docs/configuration-options/
 
+# Local development backend (run: npx decap-server)
+local_backend: true
+
 # Backend configuration
 backend:
   name: github
@@ -32,7 +35,7 @@ collections:
     create: true
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
-    media_folder: "/public/uploads/football"
+    media_folder: "public/uploads/football"
     public_folder: "/uploads/football"
     fields:
       - { label: "Título", name: "title", widget: "string", required: true }
@@ -58,7 +61,7 @@ collections:
     create: true
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
-    media_folder: "/public/uploads/motogp"
+    media_folder: "public/uploads/motogp"
     public_folder: "/uploads/motogp"
     fields:
       - { label: "Título", name: "title", widget: "string", required: true }
@@ -84,7 +87,7 @@ collections:
     create: true
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
-    media_folder: "/public/uploads/gaming"
+    media_folder: "public/uploads/gaming"
     public_folder: "/uploads/gaming"
     fields:
       - { label: "Título", name: "title", widget: "string", required: true }
@@ -112,7 +115,7 @@ collections:
     create: true
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
-    media_folder: "/public/uploads/books"
+    media_folder: "public/uploads/books"
     public_folder: "/uploads/books"
     fields:
       - { label: "Título", name: "title", widget: "string", required: true }
@@ -141,7 +144,7 @@ collections:
     create: true
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
-    media_folder: "/public/uploads/movies"
+    media_folder: "public/uploads/movies"
     public_folder: "/uploads/movies"
     fields:
       - { label: "Título", name: "title", widget: "string", required: true }
@@ -169,7 +172,7 @@ collections:
     create: true
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
-    media_folder: "/public/uploads/tvshows"
+    media_folder: "public/uploads/tvshows"
     public_folder: "/uploads/tvshows"
     fields:
       - { label: "Título", name: "title", widget: "string", required: true }
@@ -197,7 +200,7 @@ collections:
     create: true
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
-    media_folder: "/public/uploads/travel"
+    media_folder: "public/uploads/travel"
     public_folder: "/uploads/travel"
     fields:
       - { label: "Título", name: "title", widget: "string", required: true }
