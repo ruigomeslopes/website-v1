@@ -3,9 +3,9 @@ import { Inter, Merriweather } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { ThemeToggle } from '@/components/ThemeToggle'
-import { LanguageToggle } from '@/components/LanguageToggle'
 import { locales } from '@/i18n'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 import '../globals.css'
 
 // Google Fonts
@@ -51,13 +51,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${inter.variable} ${merriweather.variable}`}>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <NextIntlClientProvider messages={messages}>
-          <div className="fixed top-4 right-4 z-50 flex gap-2">
-            <LanguageToggle />
-            <ThemeToggle />
-          </div>
+          <Header />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
