@@ -1,0 +1,266 @@
+{
+  "navigation": {
+    "home": "Início",
+    "categories": "Categorias",
+    "about": "Sobre",
+    "contact": "Contacto"
+  },
+  "dock": {
+    "home": "Início",
+    "football": "Futebol",
+    "motogp": "MotoGP",
+    "gaming": "Gaming",
+    "books": "Livros",
+    "movies": "Filmes",
+    "tvshows": "Séries",
+    "travel": "Viagens",
+    "theme": "Alternar Tema",
+    "language": "Mudar Idioma",
+    "menu": "Menu"
+  },
+  "categories": {
+    "football": "Futebol",
+    "motogp": "MotoGP",
+    "gaming": "Gaming",
+    "books": "Livros",
+    "movies": "Filmes",
+    "tvshows": "Séries",
+    "travel": "Viagens"
+  },
+  "common": {
+    "readMore": "Ler mais",
+    "readingTime": "min de leitura",
+    "minRead": "min de leitura",
+    "publishedOn": "Publicado em",
+    "loading": "A carregar"
+  },
+  "header": {
+    "tagline": "Jornalista | Contador de Histórias | Analista",
+    "switchLanguage": "Mudar para Inglês"
+  },
+  "footer": {
+    "subtitle": "Jornalista & Storyteller",
+    "motto": "Cada história merece ser contada",
+    "columnsCount": "{count} colunas",
+    "categoriesCount": "{count} categorias",
+    "copyright": "© 2025",
+    "followMe": "Segue-me"
+  },
+  "theme": {
+    "light": "Modo claro",
+    "dark": "Modo escuro",
+    "toggle": "Alternar tema"
+  },
+  "social": {
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter/X",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "cv": "Curriculum Vitae",
+    "email": "Email",
+    "socialLinks": "Links de redes sociais"
+  },
+  "language": {
+    "portuguese": "Português",
+    "english": "English",
+    "current": "Idioma atual",
+    "switchTo": "Mudar para {language}"
+  },
+  "homepage": {
+    "title": "Rui Lopes",
+    "subtitle": "Jornalista Desportivo & Criador de Conteúdo",
+    "newSubtitle": "Jornalista e Storyteller",
+    "welcome": "Bem-vindo ao meu espaço digital",
+    "intro": "Descobre as minhas análises, críticas e histórias sobre desporto, entretenimento e viagens.",
+    "exploreArticles": "Explorar Artigos",
+    "exploreContent": "Explorar Conteúdo",
+    "latestWork": "Trabalhos Recentes",
+    "nextSteps": "Próximos Passos",
+    "phase1Complete": "Phase 1 Completa",
+    "phase2Complete": "Phase 2 Completa",
+    "phase3Complete": "Phase 3 Completa",
+    "designSystemReady": "Design System Pronto",
+    "i18nReady": "i18n Pronto",
+    "implementationProgress": "Progresso da Implementação",
+    "componentShowcase": "Showcase de Componentes",
+    "themeToggleNote": "Experimenta o toggle de tema no canto superior direito! A preferência será guardada.",
+    "buttons": "Botões",
+    "badges": "Badges",
+    "primary": "Primário",
+    "secondary": "Secundário",
+    "ghost": "Ghost",
+    "default": "Default",
+    "category": "Categoria",
+    "warning": "Aviso",
+    "error": "Erro",
+    "continueToPhase": "Continuar para Phase {phase}",
+    "navigableText": {
+      "phrase1": "Análises de **futebol** e **MotoGP**.",
+      "phrase2": "Críticas de **gaming**, **filmes** e **séries**.",
+      "phrase3": "Histórias de **viagens** e **livros**."
+    },
+    "timeline": {
+      "title": "Últimas Publicações",
+      "subtitle": "Uma viagem pelo meu trabalho recente",
+      "viewAll": "Ver todas as publicações"
+    },
+    "scrollHint": "Desliza para explorar"
+  },
+  "categoryDescriptions": {
+    "football": "Análises táticas e comentários sobre futebol",
+    "motogp": "Cobertura de MotoGP e desportos motorizados",
+    "gaming": "Reviews e análises de videojogos",
+    "movies": "Críticas e reflexões sobre cinema",
+    "tvshows": "Análises de séries e TV",
+    "books": "Leituras e críticas literárias",
+    "travel": "Guias de viagem e experiências"
+  },
+  "article": {
+    "by": "Por",
+    "tags": "Tags",
+    "share": "Partilhar",
+    "relatedArticles": "Podes também gostar",
+    "shareArticle": "Partilhar Artigo",
+    "shareOn": "Partilhar em {platform}",
+    "copyLink": "Copiar Link",
+    "linkCopied": "Link copiado!",
+    "teams": "Equipas",
+    "competition": "Competição",
+    "matchDate": "Data do Jogo",
+    "result": "Resultado",
+    "gpName": "Grande Prémio",
+    "circuit": "Circuito",
+    "date": "Data",
+    "raceCategory": "Categoria",
+    "platinumAchieved": "PLATINA CONQUISTADA",
+    "platinumDescription": "Troféu de platina desbloqueado",
+    "author": "Autor",
+    "genre": "Género",
+    "pages": "Páginas",
+    "dateRead": "Lido em",
+    "rating": "Avaliação",
+    "currentlyReading": "A Ler Atualmente",
+    "progress": "Progresso",
+    "director": "Realizador",
+    "releaseYear": "Ano",
+    "runtime": "Duração",
+    "whereWatched": "Visto em",
+    "creator": "Criador",
+    "seasons": "temporadas",
+    "episodes": "episódios",
+    "platform": "Plataforma",
+    "status": "Estado",
+    "seasonsEpisodes": "Temporadas/Episódios",
+    "destination": "Destino",
+    "tripDuration": "Duração da Viagem",
+    "budget": "Orçamento"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "subtitle": "Jornalista Desportivo & Criador de Conteúdo",
+    "bio": "Olá! Sou o Rui Lopes, um aspirante a jornalista desportivo com paixão por contar histórias. Aqui encontrarás as minhas análises táticas de futebol, cobertura de MotoGP, reviews de gaming, críticas de filmes e séries, reflexões sobre livros e guias de viagem.",
+    "bioExtended": "A minha jornada no jornalismo desportivo é impulsionada pela vontade de oferecer perspetivas únicas e análises aprofundadas. Acredito que o desporto é mais do que resultados - são histórias humanas, táticas complexas e momentos que nos unem.",
+    "skills": "Competências",
+    "skillsList": {
+      "writing": "Escrita e storytelling",
+      "analysis": "Análise desportiva e tática",
+      "research": "Pesquisa e fact-checking",
+      "bilingual": "Comunicação bilingue (PT/EN)"
+    },
+    "ctaButton": "Ler os Meus Artigos",
+    "getInTouch": "Entra em Contacto"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Vamos conversar",
+    "description": "Tens um projeto, oportunidade ou simplesmente queres conversar? Entra em contacto!",
+    "email": "Email",
+    "emailLabel": "Enviar Email",
+    "socialLabel": "Redes Sociais",
+    "followMe": "Segue-me nas redes sociais"
+  },
+  "breadcrumbs": {
+    "home": "Início",
+    "categories": {
+      "football": "Futebol",
+      "motogp": "MotoGP",
+      "gaming": "Gaming",
+      "books": "Livros",
+      "movies": "Filmes",
+      "tvshows": "Séries",
+      "travel": "Viagens"
+    }
+  },
+  "home": {
+    "hero": {
+      "phrase1": "Apaixonado por **futebol**, **MotoGP** e análise desportiva",
+      "phrase2": "Contador de histórias através de **gaming** e **livros**",
+      "phrase3": "Explorador de mundos reais e ficcionais - **viagens**, **filmes** e **séries**"
+    }
+  },
+  "timeline": {
+    "title": "Linha Cronológica",
+    "subtitle": "Explora os artigos organizados cronologicamente",
+    "scrollHint": "Desliza para ver mais"
+  },
+  "actions": {
+    "viewAll": "Ver todos",
+    "loadMore": "Carregar mais",
+    "goBack": "Voltar"
+  },
+  "category": {
+    "filterByTag": "Filtrar por tag",
+    "clearFilters": "Limpar filtros",
+    "activeFilters": "{count} filtros ativos",
+    "sortBy": "Ordenar por",
+    "sortLatest": "Mais recentes",
+    "sortOldest": "Mais antigos",
+    "noArticles": "Nenhum artigo encontrado nesta categoria.",
+    "noArticlesFiltered": "Nenhum artigo corresponde aos filtros selecionados.",
+    "articleCount": "{count, plural, =0 {Nenhum artigo} one {1 artigo} other {# artigos}}",
+    "filterByLanguage": "Filtrar por idioma",
+    "allLanguages": "Todos",
+    "viewMode": "Modo de visualização",
+    "gridView": "Grelha",
+    "listView": "Lista"
+  },
+  "categoryPages": {
+    "comingSoon": "Em breve",
+    "placeholder": "Esta página de categoria será implementada na Phase 6",
+    "backToHome": "Voltar ao Início"
+  },
+  "setup": {
+    "nextjsSetup": "Next.js 14 + TypeScript setup",
+    "tailwindConfigured": "Tailwind CSS configurado",
+    "designSystem": "Design System com CSS Variables",
+    "themeToggle": "Toggle Light/Dark theme",
+    "googleFonts": "Google Fonts (Inter + Merriweather)",
+    "uiComponents": "Componentes UI (Button, Card, Badge, Container)",
+    "i18nSupport": "Suporte bilíngue (PT/EN)",
+    "languageToggle": "Toggle de idioma",
+    "routingStructure": "Estrutura de routing com [locale]"
+  },
+  "errors": {
+    "404": {
+      "title": "Página Não Encontrada",
+      "heading": "404 - Página Não Encontrada",
+      "message": "Desculpe, a página que procura não existe ou foi movida.",
+      "suggestion": "Tente verificar o URL ou voltar à página inicial.",
+      "backHome": "Voltar ao Início",
+      "browseCategories": "Explorar Categorias"
+    },
+    "500": {
+      "title": "Algo Correu Mal",
+      "heading": "Ops! Algo Correu Mal",
+      "message": "Ocorreu um erro inesperado. Estamos a trabalhar para o resolver.",
+      "suggestion": "Tente atualizar a página ou volte mais tarde.",
+      "refresh": "Atualizar Página",
+      "backHome": "Voltar ao Início"
+    },
+    "general": {
+      "tryAgain": "Tentar Novamente",
+      "contactSupport": "Contactar Suporte",
+      "errorCode": "Código de Erro"
+    }
+  }
+}
