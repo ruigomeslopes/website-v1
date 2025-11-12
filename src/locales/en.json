@@ -1,6 +1,7 @@
 {
   "navigation": {
     "home": "Home",
+    "categories": "Categories",
     "latest": "Latest",
     "about": "About",
     "contact": "Contact"
@@ -42,7 +43,9 @@
     "title": "Rui Lopes",
     "subtitle": "Sports Journalist & Content Creator",
     "welcome": "Welcome to my digital space",
+    "intro": "Discover my analysis, reviews, and stories about sports, entertainment, and travel.",
     "exploreArticles": "Explore Articles",
+    "exploreContent": "Explore Content",
     "latestWork": "Latest Work",
     "nextSteps": "Next Steps",
     "phase1Complete": "Phase 1 Complete",
@@ -63,6 +66,21 @@
     "warning": "Warning",
     "error": "Error",
     "continueToPhase": "Continue to Phase {phase}"
+  },
+  "categoryDescriptions": {
+    "football": "Tactical analysis and football commentary",
+    "motogp": "MotoGP and motorsports coverage",
+    "gaming": "Video game reviews and analysis",
+    "movies": "Film reviews and reflections",
+    "tvshows": "TV series analysis",
+    "books": "Reading and literary reviews",
+    "travel": "Travel guides and experiences"
+  },
+  "social": {
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter/X",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
   },
   "article": {
     "by": "By",

@@ -1,6 +1,7 @@
 {
   "navigation": {
     "home": "Início",
+    "categories": "Categorias",
     "latest": "Últimos",
     "about": "Sobre",
     "contact": "Contacto"
@@ -42,7 +43,9 @@
     "title": "Rui Lopes",
     "subtitle": "Jornalista Desportivo & Criador de Conteúdo",
     "welcome": "Bem-vindo ao meu espaço digital",
+    "intro": "Descobre as minhas análises, críticas e histórias sobre desporto, entretenimento e viagens.",
     "exploreArticles": "Explorar Artigos",
+    "exploreContent": "Explorar Conteúdo",
     "latestWork": "Trabalhos Recentes",
     "nextSteps": "Próximos Passos",
     "phase1Complete": "Phase 1 Completa",
@@ -63,6 +66,21 @@
     "warning": "Aviso",
     "error": "Erro",
     "continueToPhase": "Continuar para Phase {phase}"
+  },
+  "categoryDescriptions": {
+    "football": "Análises táticas e comentários sobre futebol",
+    "motogp": "Cobertura de MotoGP e desportos motorizados",
+    "gaming": "Reviews e análises de videojogos",
+    "movies": "Críticas e reflexões sobre cinema",
+    "tvshows": "Análises de séries e TV",
+    "books": "Leituras e críticas literárias",
+    "travel": "Guias de viagem e experiências"
+  },
+  "social": {
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter/X",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
   },
   "article": {
     "by": "Por",
