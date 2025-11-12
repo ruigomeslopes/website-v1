@@ -65,6 +65,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
+export const dynamic = 'force-static';
+
 export default async function BooksArticlePage({ params }: PageProps) {
   const { locale, slug } = await params;
 
