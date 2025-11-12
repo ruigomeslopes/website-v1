@@ -1,20 +1,13 @@
 import { getRequestConfig } from 'next-intl/server'
-import { notFound } from 'next/navigation'
-
-// Supported locales for the application
-export const locales = ['pt', 'en'] as const
-export type Locale = (typeof locales)[number]
-
-// Default locale (Portuguese primary)
-export const defaultLocale: Locale = 'pt'
+import { routing } from './i18n/routing'
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  // Get locale from the request
+  // This typically corresponds to the `[locale]` segment
   let locale = await requestLocale
 
-  // Validate that the incoming `locale` parameter is valid
-  if (!locale || !locales.includes(locale as Locale)) {
-    notFound()
+  // Ensure that a valid locale is used
+  if (!locale || !routing.locales.includes(locale as any)) {
+    locale = routing.defaultLocale
   }
 
   return {
