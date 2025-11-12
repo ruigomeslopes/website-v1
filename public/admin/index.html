@@ -7,7 +7,7 @@
   <title>Decap CMS - Rui Lopes Blog</title>
 
   <!-- Decap CMS Styles -->
-  <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css" />
+  <link rel="stylesheet" href="https://unpkg.com/decap-cms@3.9.0/dist/decap-cms.css" />
 
   <!-- Custom CMS Styles (optional) -->
   <style>
@@ -17,16 +17,38 @@
   </style>
 </head>
 <body>
-  <!-- Decap CMS will mount here -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Explicit mount point for Decap CMS -->
+  <div id="nc-root"></div>
 
-  <!-- Optional: Custom preview styles -->
+  <!-- Set manual initialization flag BEFORE loading CMS -->
   <script>
-    // Register custom preview styles if needed
-    // CMS.registerPreviewStyle("/styles/preview.css");
+    window.CMS_MANUAL_INIT = true;
+  </script>
 
-    // Initialize CMS
-    CMS.init();
+  <!-- Decap CMS Script - pinned to stable version 3.9.0 -->
+  <script src="https://unpkg.com/decap-cms@3.9.0/dist/decap-cms.js"></script>
+
+  <!-- Initialize CMS after DOM is ready -->
+  <script>
+    // Wait for DOM to be fully ready before initializing
+    function initializeDecapCMS() {
+      if (typeof window.initCMS !== 'undefined') {
+        window.initCMS();
+      } else if (typeof CMS !== 'undefined' && typeof CMS.init === 'function') {
+        // Fallback to CMS.init() if initCMS is not available
+        CMS.init();
+      } else {
+        console.error('Decap CMS not loaded correctly');
+      }
+    }
+
+    // Check if DOM is already loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeDecapCMS);
+    } else {
+      // DOM is already loaded, initialize immediately
+      initializeDecapCMS();
+    }
   </script>
 </body>
 </html>
