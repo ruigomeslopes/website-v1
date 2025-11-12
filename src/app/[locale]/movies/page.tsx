@@ -1,46 +1,40 @@
-import { useTranslations } from 'next-intl'
-import { Container } from '@/components/ui/Container'
-import { Card, CardBody } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
-import { Badge } from '@/components/ui/Badge'
-import Link from 'next/link'
+import { unstable_setRequestLocale } from 'next-intl/server';
+import { getArticlesByCategory } from '@/lib/articles';
+import CategoryPageClient from '@/components/article/CategoryPageClient';
+import { Article } from '@/types/article';
 
 // Force static export for GitHub Pages
-export const dynamic = 'force-static'
+export const dynamic = 'force-static';
 
-export default function MoviesPage() {
-  const t = useTranslations()
+interface MoviesPageProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function MoviesPage({ params: { locale } }: MoviesPageProps) {
+  unstable_setRequestLocale(locale);
+
+  const articleListItems = await getArticlesByCategory('movies', locale as 'pt' | 'en');
+
+  const articles: Article[] = articleListItems.map((item) => ({
+    frontmatter: item.frontmatter as any,
+    content: '',
+    readingTime: item.readingTime,
+    slug: item.slug,
+    locale: locale as 'pt' | 'en',
+  }));
 
   return (
-    <main className="min-h-screen py-16">
-      <Container size="md">
-        <div className="text-center mb-8">
-          <Badge variant="category" className="mb-4">
-            🎬 {t('categories.movies')}
-          </Badge>
-          <h1 className="font-heading text-4xl font-bold mb-4">
-            {t('categories.movies')}
-          </h1>
-        </div>
+    <CategoryPageClient
+      initialArticles={articles}
+      categoryKey="movies"
+      categoryIcon="🎬"
+      locale={locale}
+    />
+  );
+}
 
-        <Card variant="outlined">
-          <CardBody>
-            <div className="text-center space-y-4">
-              <p className="text-xl font-medium text-text-secondary">
-                {t('categoryPages.comingSoon')}
-              </p>
-              <p className="text-text-tertiary">
-                {t('categoryPages.placeholder')}
-              </p>
-              <Link href="/">
-                <Button variant="primary">
-                  {t('categoryPages.backToHome')}
-                </Button>
-              </Link>
-            </div>
-          </CardBody>
-        </Card>
-      </Container>
-    </main>
-  )
+export async function generateStaticParams() {
+  return [{ locale: 'pt' }, { locale: 'en' }];
 }
