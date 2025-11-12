@@ -1,0 +1,266 @@
+{
+  "navigation": {
+    "home": "Home",
+    "categories": "Categories",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "dock": {
+    "home": "Home",
+    "football": "Football",
+    "motogp": "MotoGP",
+    "gaming": "Gaming",
+    "books": "Books",
+    "movies": "Movies",
+    "tvshows": "TV Shows",
+    "travel": "Travel",
+    "theme": "Toggle Theme",
+    "language": "Change Language",
+    "menu": "Menu"
+  },
+  "categories": {
+    "football": "Football",
+    "motogp": "MotoGP",
+    "gaming": "Gaming",
+    "books": "Books",
+    "movies": "Movies",
+    "tvshows": "TV Shows",
+    "travel": "Travel"
+  },
+  "common": {
+    "readMore": "Read more",
+    "readingTime": "min read",
+    "minRead": "min read",
+    "publishedOn": "Published on",
+    "loading": "Loading"
+  },
+  "header": {
+    "tagline": "Journalist | Storyteller | Analyst",
+    "switchLanguage": "Switch to Portuguese"
+  },
+  "footer": {
+    "subtitle": "Journalist & Storyteller",
+    "motto": "Every story deserves to be told",
+    "columnsCount": "{count} columns",
+    "categoriesCount": "{count} categories",
+    "copyright": "© 2025",
+    "followMe": "Follow me"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "toggle": "Toggle theme"
+  },
+  "social": {
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter/X",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "cv": "Curriculum Vitae",
+    "email": "Email",
+    "socialLinks": "Social media links"
+  },
+  "language": {
+    "portuguese": "Português",
+    "english": "English",
+    "current": "Current language",
+    "switchTo": "Switch to {language}"
+  },
+  "homepage": {
+    "title": "Rui Lopes",
+    "subtitle": "Sports Journalist & Content Creator",
+    "newSubtitle": "Journalist and Storyteller",
+    "welcome": "Welcome to my digital space",
+    "intro": "Discover my analysis, reviews, and stories about sports, entertainment, and travel.",
+    "exploreArticles": "Explore Articles",
+    "exploreContent": "Explore Content",
+    "latestWork": "Latest Work",
+    "nextSteps": "Next Steps",
+    "phase1Complete": "Phase 1 Complete",
+    "phase2Complete": "Phase 2 Complete",
+    "phase3Complete": "Phase 3 Complete",
+    "designSystemReady": "Design System Ready",
+    "i18nReady": "i18n Ready",
+    "implementationProgress": "Implementation Progress",
+    "componentShowcase": "Component Showcase",
+    "themeToggleNote": "Try the theme toggle in the top-right corner! The preference will persist.",
+    "buttons": "Buttons",
+    "badges": "Badges",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "ghost": "Ghost",
+    "default": "Default",
+    "category": "Category",
+    "warning": "Warning",
+    "error": "Error",
+    "continueToPhase": "Continue to Phase {phase}",
+    "navigableText": {
+      "phrase1": "**Football** and **MotoGP** analysis.",
+      "phrase2": "**Gaming**, **movie** and **TV show** reviews.",
+      "phrase3": "**Travel** and **book** stories."
+    },
+    "timeline": {
+      "title": "Latest Publications",
+      "subtitle": "A journey through my recent work",
+      "viewAll": "View all publications"
+    },
+    "scrollHint": "Scroll to explore"
+  },
+  "categoryDescriptions": {
+    "football": "Tactical analysis and football commentary",
+    "motogp": "MotoGP and motorsports coverage",
+    "gaming": "Video game reviews and analysis",
+    "movies": "Film reviews and reflections",
+    "tvshows": "TV series analysis",
+    "books": "Reading and literary reviews",
+    "travel": "Travel guides and experiences"
+  },
+  "article": {
+    "by": "By",
+    "tags": "Tags",
+    "share": "Share",
+    "relatedArticles": "You might also like",
+    "shareArticle": "Share Article",
+    "shareOn": "Share on {platform}",
+    "copyLink": "Copy Link",
+    "linkCopied": "Link copied!",
+    "teams": "Teams",
+    "competition": "Competition",
+    "matchDate": "Match Date",
+    "result": "Result",
+    "gpName": "Grand Prix",
+    "circuit": "Circuit",
+    "date": "Date",
+    "raceCategory": "Category",
+    "platinumAchieved": "PLATINUM ACHIEVED",
+    "platinumDescription": "Platinum trophy unlocked",
+    "author": "Author",
+    "genre": "Genre",
+    "pages": "Pages",
+    "dateRead": "Read on",
+    "rating": "Rating",
+    "currentlyReading": "Currently Reading",
+    "progress": "Progress",
+    "director": "Director",
+    "releaseYear": "Year",
+    "runtime": "Runtime",
+    "whereWatched": "Watched on",
+    "creator": "Creator",
+    "seasons": "seasons",
+    "episodes": "episodes",
+    "platform": "Platform",
+    "status": "Status",
+    "seasonsEpisodes": "Seasons/Episodes",
+    "destination": "Destination",
+    "tripDuration": "Trip Duration",
+    "budget": "Budget"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Sports Journalist & Content Creator",
+    "bio": "Hi! I'm Rui Lopes, an aspiring sports journalist with a passion for storytelling. Here you'll find my tactical football analysis, MotoGP coverage, gaming reviews, film and TV series critiques, book reflections, and travel guides.",
+    "bioExtended": "My journey in sports journalism is driven by a desire to offer unique perspectives and in-depth analysis. I believe sport is more than just results - it's human stories, complex tactics, and moments that unite us.",
+    "skills": "Skills",
+    "skillsList": {
+      "writing": "Writing and storytelling",
+      "analysis": "Sports and tactical analysis",
+      "research": "Research and fact-checking",
+      "bilingual": "Bilingual communication (PT/EN)"
+    },
+    "ctaButton": "Read My Articles",
+    "getInTouch": "Get In Touch"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk",
+    "description": "Have a project, opportunity, or just want to chat? Get in touch!",
+    "email": "Email",
+    "emailLabel": "Send Email",
+    "socialLabel": "Social Media",
+    "followMe": "Follow me on social media"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "categories": {
+      "football": "Football",
+      "motogp": "MotoGP",
+      "gaming": "Gaming",
+      "books": "Books",
+      "movies": "Movies",
+      "tvshows": "TV Shows",
+      "travel": "Travel"
+    }
+  },
+  "home": {
+    "hero": {
+      "phrase1": "Passionate about **football**, **MotoGP** and sports analysis",
+      "phrase2": "Storyteller through **gaming** and **books**",
+      "phrase3": "Explorer of real and fictional worlds - **travel**, **movies** and **TV shows**"
+    }
+  },
+  "timeline": {
+    "title": "Timeline",
+    "subtitle": "Explore articles organized chronologically",
+    "scrollHint": "Scroll to see more"
+  },
+  "actions": {
+    "viewAll": "View all",
+    "loadMore": "Load more",
+    "goBack": "Go back"
+  },
+  "category": {
+    "filterByTag": "Filter by tag",
+    "clearFilters": "Clear filters",
+    "activeFilters": "{count} active filters",
+    "sortBy": "Sort by",
+    "sortLatest": "Latest",
+    "sortOldest": "Oldest",
+    "noArticles": "No articles found in this category.",
+    "noArticlesFiltered": "No articles match the selected filters.",
+    "articleCount": "{count, plural, =0 {No articles} one {1 article} other {# articles}}",
+    "filterByLanguage": "Filter by language",
+    "allLanguages": "All",
+    "viewMode": "View mode",
+    "gridView": "Grid",
+    "listView": "List"
+  },
+  "categoryPages": {
+    "comingSoon": "Coming soon",
+    "placeholder": "This category page will be implemented in Phase 6",
+    "backToHome": "Back to Home"
+  },
+  "setup": {
+    "nextjsSetup": "Next.js 14 + TypeScript setup",
+    "tailwindConfigured": "Tailwind CSS configured",
+    "designSystem": "Design System with CSS Variables",
+    "themeToggle": "Light/Dark theme toggle",
+    "googleFonts": "Google Fonts (Inter + Merriweather)",
+    "uiComponents": "UI Components (Button, Card, Badge, Container)",
+    "i18nSupport": "Bilingual support (PT/EN)",
+    "languageToggle": "Language toggle",
+    "routingStructure": "Routing structure with [locale]"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "heading": "404 - Page Not Found",
+      "message": "Sorry, the page you're looking for doesn't exist or has been moved.",
+      "suggestion": "Try checking the URL or navigate back to the homepage.",
+      "backHome": "Back to Home",
+      "browseCategories": "Browse Categories"
+    },
+    "500": {
+      "title": "Something Went Wrong",
+      "heading": "Oops! Something Went Wrong",
+      "message": "An unexpected error occurred. We're working to fix it.",
+      "suggestion": "Try refreshing the page or come back later.",
+      "refresh": "Refresh Page",
+      "backHome": "Back to Home"
+    },
+    "general": {
+      "tryAgain": "Try Again",
+      "contactSupport": "Contact Support",
+      "errorCode": "Error Code"
+    }
+  }
+}
