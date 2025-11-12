@@ -1,4 +1,3 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
 import { getArticlesByCategory } from '@/lib/articles';
 import CategoryPageClient from '@/components/article/CategoryPageClient';
 import { Article } from '@/types/article';
@@ -14,7 +13,6 @@ interface MotoGPPageProps {
 
 export default async function MotoGPPage({ params }: MotoGPPageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
 
   const articleListItems = await getArticlesByCategory('motogp', locale as 'pt' | 'en');
 

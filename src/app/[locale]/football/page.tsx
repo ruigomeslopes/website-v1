@@ -1,4 +1,3 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
 import { getArticlesByCategory } from '@/lib/articles';
 import CategoryPageClient from '@/components/article/CategoryPageClient';
 import { Article } from '@/types/article';
@@ -14,7 +13,6 @@ interface FootballPageProps {
 
 export default async function FootballPage({ params }: FootballPageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
 
   // Fetch articles server-side
   const articleListItems = await getArticlesByCategory('football', locale as 'pt' | 'en');

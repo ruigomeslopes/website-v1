@@ -1,4 +1,3 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/Container';
@@ -145,7 +144,6 @@ function ContactPageContent() {
 
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
 
   return <ContactPageContent />;
 }

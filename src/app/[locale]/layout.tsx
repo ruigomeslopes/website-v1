@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Merriweather } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server'
+import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { locales } from '@/i18n'
 import Header from '@/components/layout/Header'
@@ -46,9 +46,6 @@ export default async function LocaleLayout({
   if (!locales.includes(locale as any)) {
     notFound()
   }
-
-  // Enable static rendering for this locale
-  unstable_setRequestLocale(locale);
 
   // Get messages for the current locale - explicitly pass locale for static generation
   const messages = await getMessages({ locale })

@@ -1,4 +1,3 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/Container';
@@ -195,7 +194,6 @@ function AboutPageContent({ locale }: { locale: string }) {
 
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
 
   return <AboutPageContent locale={locale} />;
 }

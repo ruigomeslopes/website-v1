@@ -1,4 +1,3 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { getAllArticlesWithCategory } from '@/lib/articles';
 import LatestPageClient from '@/components/article/LatestPageClient';
@@ -37,7 +36,6 @@ export async function generateMetadata({ params }: LatestPageProps): Promise<Met
 
 export default async function LatestPage({ params }: LatestPageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
 
   // Fetch all articles from all categories server-side
   const articleListItems = await getAllArticlesWithCategory(locale as 'pt' | 'en');

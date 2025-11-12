@@ -1,4 +1,3 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
 import { getArticlesByCategory } from '@/lib/articles';
 import CategoryPageClient from '@/components/article/CategoryPageClient';
 import { Article } from '@/types/article';
@@ -14,7 +13,6 @@ interface TVShowsPageProps {
 
 export default async function TVShowsPage({ params }: TVShowsPageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
 
   const articleListItems = await getArticlesByCategory('tvshows', locale as 'pt' | 'en');
 

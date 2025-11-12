@@ -1,4 +1,3 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
 import { getArticlesByCategory } from '@/lib/articles';
 import CategoryPageClient from '@/components/article/CategoryPageClient';
 import { Article } from '@/types/article';
@@ -14,7 +13,6 @@ interface TravelPageProps {
 
 export default async function TravelPage({ params }: TravelPageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
 
   const articleListItems = await getArticlesByCategory('travel', locale as 'pt' | 'en');
 

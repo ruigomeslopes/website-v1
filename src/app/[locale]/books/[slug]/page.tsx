@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getArticle, getAllArticlePaths, getArticlesByCategory } from '@/lib/articles';
-import { unstable_setRequestLocale } from 'next-intl/server';
 import ArticleLayout from '@/components/article/ArticleLayout';
 import ArticleHero from '@/components/article/ArticleHero';
 import Breadcrumbs from '@/components/article/Breadcrumbs';
@@ -30,9 +29,6 @@ export async function generateStaticParams() {
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-
-  // Enable static rendering for this page
-  unstable_setRequestLocale(locale);
 
   try {
     const article = await getArticle('books', slug, locale);
@@ -71,9 +67,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BooksArticlePage({ params }: PageProps) {
   const { locale, slug } = await params;
-
-  // Enable static rendering for this page
-  unstable_setRequestLocale(locale);
 
   let article;
   try {

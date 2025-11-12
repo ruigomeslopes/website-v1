@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { unstable_setRequestLocale } from 'next-intl/server';
 import { getArticle, getAllArticlePaths, getArticlesByCategory } from '@/lib/articles';
 import ArticleLayout from '@/components/article/ArticleLayout';
 import ArticleHero from '@/components/article/ArticleHero';
@@ -68,9 +67,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function FootballArticlePage({ params }: PageProps) {
   const { locale, slug } = await params;
-
-  // Enable static rendering for this page
-  unstable_setRequestLocale(locale);
 
   let article;
   try {
