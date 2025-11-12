@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import Link from 'next/link'
 
+// Force static export for GitHub Pages
+export const dynamic = 'force-static'
+
 export default function TVShowsPage() {
   const t = useTranslations()
 
