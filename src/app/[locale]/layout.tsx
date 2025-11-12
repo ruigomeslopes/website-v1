@@ -3,7 +3,7 @@ import { Inter, Merriweather } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { locales } from '@/i18n'
+import { routing } from '@/i18n/routing'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import '../globals.css'
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 // Generate static params for all supported locales
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }))
+  return routing.locales.map((locale) => ({ locale }))
 }
 
 export default async function LocaleLayout({
@@ -43,7 +43,7 @@ export default async function LocaleLayout({
   const { locale } = await params
 
   // Validate locale
-  if (!locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as any)) {
     notFound()
   }
 
