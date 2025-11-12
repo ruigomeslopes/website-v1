@@ -4,6 +4,9 @@ import { Card, CardHeader, CardBody } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 
+// Force static export for GitHub Pages
+export const dynamic = 'force-static'
+
 export default function Home() {
   const t = useTranslations()
 
