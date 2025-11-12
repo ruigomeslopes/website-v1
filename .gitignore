@@ -1,0 +1,58 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env*.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Documentation & Development
+CLAUDE.md
+PRD.md
+PROMPTS/
+PROGRESS.md
+boas.md
+CMS_GUIDE.md
+DEPLOYMENT.md
+IMPLEMENTATION_ROADMAP.md
+SETUP.md
+ai.md
+julio.md
+prompt.md
+TESTING_PROMPT.md
+QUICK_TEST_PROMPT.txt
+
+# Development notes patterns
+*_PROMPT.md
+*_PROMPT.txt
+*.notes.md
+
+# Images (uploaded via CMS to /public/uploads/)
+*.png
+NETLIFY_SETUP.md
