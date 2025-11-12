@@ -1,31 +1,17 @@
-// Article metadata types
-export interface ArticleMetadata {
-  title: string
-  date: string
-  excerpt: string
-  tags: string[]
-  slug: string
-  category: Category
+// Locale types for internationalization
+export type Locale = 'pt' | 'en'
+
+export interface LocaleParams {
   locale: Locale
 }
 
-// Category types
-export type Category =
-  | 'football'
-  | 'motogp'
-  | 'gaming'
-  | 'books'
-  | 'movies'
-  | 'tvshows'
-  | 'travel'
-
-// Locale types
-export type Locale = 'pt' | 'en'
-
-// Full article with content
-export interface Article extends ArticleMetadata {
-  content: string
-  readingTime: number
+// Page params interface for locale-aware pages
+export interface PageProps {
+  params: LocaleParams
 }
 
-// Category-specific metadata will be added in later phases
+// Layout params interface for locale-aware layouts
+export interface LayoutProps {
+  children: React.ReactNode
+  params: LocaleParams
+}
