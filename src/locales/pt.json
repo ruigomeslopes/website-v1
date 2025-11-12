@@ -18,5 +18,77 @@
     "readMore": "Ler mais",
     "readingTime": "min de leitura",
     "publishedOn": "Publicado em"
+  },
+  "header": {
+    "tagline": "Jornalista | Contador de Histórias | Analista",
+    "switchLanguage": "Mudar para Inglês"
+  },
+  "footer": {
+    "copyright": "© 2025 Rui Lopes. Todos os direitos reservados.",
+    "followMe": "Segue-me"
+  },
+  "theme": {
+    "light": "Modo claro",
+    "dark": "Modo escuro",
+    "toggle": "Alternar tema"
+  },
+  "language": {
+    "portuguese": "Português",
+    "english": "English",
+    "current": "Idioma atual",
+    "switchTo": "Mudar para {language}"
+  },
+  "homepage": {
+    "title": "Rui Lopes",
+    "subtitle": "Jornalista Desportivo & Criador de Conteúdo",
+    "welcome": "Bem-vindo ao meu espaço digital",
+    "exploreArticles": "Explorar Artigos",
+    "latestWork": "Trabalhos Recentes",
+    "nextSteps": "Próximos Passos",
+    "phase1Complete": "Phase 1 Completa",
+    "phase2Complete": "Phase 2 Completa",
+    "phase3Complete": "Phase 3 Completa",
+    "designSystemReady": "Design System Pronto",
+    "i18nReady": "i18n Pronto",
+    "implementationProgress": "Progresso da Implementação",
+    "componentShowcase": "Showcase de Componentes",
+    "themeToggleNote": "Experimenta o toggle de tema no canto superior direito! A preferência será guardada.",
+    "buttons": "Botões",
+    "badges": "Badges",
+    "primary": "Primário",
+    "secondary": "Secundário",
+    "ghost": "Ghost",
+    "default": "Default",
+    "category": "Categoria",
+    "warning": "Aviso",
+    "error": "Erro",
+    "continueToPhase": "Continuar para Phase {phase}"
+  },
+  "article": {
+    "by": "Por",
+    "tags": "Tags",
+    "share": "Partilhar",
+    "relatedArticles": "Podes também gostar"
+  },
+  "actions": {
+    "viewAll": "Ver todos",
+    "loadMore": "Carregar mais",
+    "goBack": "Voltar"
+  },
+  "categoryPages": {
+    "comingSoon": "Em breve",
+    "placeholder": "Esta página de categoria será implementada na Phase 6",
+    "backToHome": "Voltar ao Início"
+  },
+  "setup": {
+    "nextjsSetup": "Next.js 14 + TypeScript setup",
+    "tailwindConfigured": "Tailwind CSS configurado",
+    "designSystem": "Design System com CSS Variables",
+    "themeToggle": "Toggle Light/Dark theme",
+    "googleFonts": "Google Fonts (Inter + Merriweather)",
+    "uiComponents": "Componentes UI (Button, Card, Badge, Container)",
+    "i18nSupport": "Suporte bilíngue (PT/EN)",
+    "languageToggle": "Toggle de idioma",
+    "routingStructure": "Estrutura de routing com [locale]"
   }
 }
