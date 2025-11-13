@@ -1,6 +1,10 @@
 import { getRequestConfig } from 'next-intl/server'
 import { routing } from './i18n/routing'
 
+// Export routing and locales for use in components
+export { routing }
+export const locales = routing.locales
+
 export default getRequestConfig(async ({ requestLocale }) => {
   // This typically corresponds to the `[locale]` segment
   let locale = await requestLocale
