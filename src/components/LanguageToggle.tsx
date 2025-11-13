@@ -22,8 +22,13 @@ export function LanguageToggle() {
     const pathWithoutLocale = pathname.replace(`/${locale}`, '')
 
     // Navigate to the same path in the new locale
+    // Ensure trailing slash for homepage
+    const newPath = pathWithoutLocale === '' || pathWithoutLocale === '/'
+      ? `/${newLocale}/`
+      : `/${newLocale}${pathWithoutLocale}`
+
     startTransition(() => {
-      router.push(`/${newLocale}${pathWithoutLocale}`)
+      router.push(newPath)
       setIsOpen(false)
     })
   }
@@ -41,7 +46,7 @@ export function LanguageToggle() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         disabled={isPending}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-secondary border border-border-primary hover:bg-bg-tertiary transition-colors disabled:opacity-50"
+        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-secondary border border-border-primary hover:bg-surface-tertiary transition-colors disabled:opacity-50"
         aria-label="Switch language"
         title="Switch language"
       >
@@ -71,14 +76,14 @@ export function LanguageToggle() {
           />
 
           {/* Dropdown menu */}
-          <div className="absolute right-0 mt-2 w-48 rounded-lg bg-bg-secondary border border-border-primary shadow-lg z-50 overflow-hidden">
+          <div className="absolute right-0 mt-2 w-48 rounded-lg bg-surface-secondary border border-border-primary shadow-lg z-50 overflow-hidden">
             {locales.map((loc) => (
               <button
                 key={loc}
                 onClick={() => switchLocale(loc)}
-                className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-bg-tertiary transition-colors ${
+                className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-surface-tertiary transition-colors ${
                   loc === locale
-                    ? 'bg-bg-tertiary text-accent font-medium'
+                    ? 'bg-surface-tertiary text-accent-primary font-medium'
                     : 'text-text-primary'
                 }`}
               >
@@ -86,7 +91,7 @@ export function LanguageToggle() {
                 <span>{getLanguageName(loc)}</span>
                 {loc === locale && (
                   <svg
-                    className="w-4 h-4 ml-auto text-accent"
+                    className="w-4 h-4 ml-auto text-accent-primary"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
