@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { parseMDX, getContentPath } from './mdx';
-import type { Article, ArticleListItem, Category } from '@/types/article';
+import type { Article, ArticleListItem, ArticleWithCategory, Category } from '@/types/article';
 
 /**
  * Get all article slugs for a specific category and locale
@@ -109,15 +109,21 @@ export async function getAllArticles(locale: 'pt' | 'en'): Promise<ArticleListIt
  */
 export async function getAllArticlesWithCategory(
   locale: 'pt' | 'en'
-): Promise<(ArticleListItem & { category: Category; locale: 'pt' | 'en' })[]> {
+): Promise<ArticleWithCategory[]> {
   const categories: Category[] = ['football', 'motogp', 'gaming', 'movies', 'tvshows', 'books', 'travel'];
 
   const allArticles = await Promise.all(
     categories.map(async (category) => {
       const articles = await getArticlesByCategory(category, locale);
-      return articles.map((article) => ({
-        ...article,
+      return articles.map((article): ArticleWithCategory => ({
+        title: article.frontmatter.title,
+        slug: article.slug,
         category,
+        date: article.frontmatter.date,
+        description: article.frontmatter.excerpt,
+        readingTime: article.readingTime,
+        image: article.frontmatter.image,
+        tags: article.frontmatter.tags,
         locale,
       }));
     })
@@ -125,8 +131,8 @@ export async function getAllArticlesWithCategory(
 
   // Flatten and sort by date (newest first)
   return allArticles.flat().sort((a, b) => {
-    const dateA = new Date(a.frontmatter.date);
-    const dateB = new Date(b.frontmatter.date);
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
     return dateB.getTime() - dateA.getTime();
   });
 }

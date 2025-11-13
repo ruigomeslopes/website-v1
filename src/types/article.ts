@@ -104,3 +104,16 @@ export interface ArticleListItem {
   readingTime: number;
   slug: string;
 }
+
+// Article with category info for timeline/latest views
+export interface ArticleWithCategory {
+  title: string;
+  slug: string;
+  category: Category;
+  date: string;
+  description?: string;
+  readingTime: number;
+  image: string;
+  tags: string[];
+  locale: 'pt' | 'en';
+}
