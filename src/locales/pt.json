@@ -6,6 +6,19 @@
     "about": "Sobre",
     "contact": "Contacto"
   },
+  "dock": {
+    "home": "Início",
+    "football": "Futebol",
+    "motogp": "MotoGP",
+    "gaming": "Gaming",
+    "books": "Livros",
+    "movies": "Filmes",
+    "tvshows": "Séries",
+    "travel": "Viagens",
+    "theme": "Alternar Tema",
+    "language": "Mudar Idioma",
+    "menu": "Menu"
+  },
   "categories": {
     "football": "Futebol",
     "motogp": "MotoGP",
@@ -35,6 +48,13 @@
     "dark": "Modo escuro",
     "toggle": "Alternar tema"
   },
+  "social": {
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter/X",
+    "cv": "Curriculum Vitae",
+    "email": "Email",
+    "socialLinks": "Links de redes sociais"
+  },
   "language": {
     "portuguese": "Português",
     "english": "English",
@@ -44,6 +64,7 @@
   "homepage": {
     "title": "Rui Lopes",
     "subtitle": "Jornalista Desportivo & Criador de Conteúdo",
+    "newSubtitle": "Jornalista e Storyteller",
     "welcome": "Bem-vindo ao meu espaço digital",
     "intro": "Descobre as minhas análises, críticas e histórias sobre desporto, entretenimento e viagens.",
     "exploreArticles": "Explorar Artigos",
@@ -67,7 +88,18 @@
     "category": "Categoria",
     "warning": "Aviso",
     "error": "Erro",
-    "continueToPhase": "Continuar para Phase {phase}"
+    "continueToPhase": "Continuar para Phase {phase}",
+    "navigableText": {
+      "phrase1": "Do **futebol** às pistas de **MotoGP**, das **viagens** pelo mundo aos mundos virtuais do **gaming**, passando por **livros**, **filmes** e **séries** - conto histórias sobre o que me move.",
+      "phrase2": "Analiso **futebol** e **MotoGP** com rigor jornalístico. Partilho **viagens**, **livros**, **filmes**, **séries** e **gaming** com paixão autêntica.",
+      "phrase3": "Dos relvados ao asfalto das pistas, das páginas aos ecrãs, dos mundos virtuais aos destinos reais - escrevo sobre **futebol**, **MotoGP**, **livros**, **filmes**, **séries**, **gaming** e **viagens**."
+    },
+    "timeline": {
+      "title": "Últimas Publicações",
+      "subtitle": "Uma viagem pelo meu trabalho recente",
+      "viewAll": "Ver todas as publicações"
+    },
+    "scrollHint": "Desliza para explorar"
   },
   "categoryDescriptions": {
     "football": "Análises táticas e comentários sobre futebol",
@@ -77,12 +109,6 @@
     "tvshows": "Análises de séries e TV",
     "books": "Leituras e críticas literárias",
     "travel": "Guias de viagem e experiências"
-  },
-  "social": {
-    "linkedin": "LinkedIn",
-    "twitter": "Twitter/X",
-    "instagram": "Instagram",
-    "facebook": "Facebook"
   },
   "article": {
     "by": "Por",
@@ -167,6 +193,18 @@
       "tvshows": "Séries",
       "travel": "Viagens"
     }
+  },
+  "home": {
+    "hero": {
+      "phrase1": "Apaixonado por **futebol**, **MotoGP** e análise desportiva",
+      "phrase2": "Contador de histórias através de **gaming** e **livros**",
+      "phrase3": "Explorador de mundos reais e ficcionais - **viagens**, **filmes** e **séries**"
+    }
+  },
+  "timeline": {
+    "title": "Linha Cronológica",
+    "subtitle": "Explora os artigos organizados cronologicamente",
+    "scrollHint": "Desliza para ver mais"
   },
   "actions": {
     "viewAll": "Ver todos",
