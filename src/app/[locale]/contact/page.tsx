@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import { PageLayout } from '@/components/layout/PageLayout';
 import { Container } from '@/components/ui/Container';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
@@ -145,7 +146,11 @@ function ContactPageContent() {
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
 
-  return <ContactPageContent />;
+  return (
+    <PageLayout>
+      <ContactPageContent />
+    </PageLayout>
+  );
 }
 
 // Generate static params for both locales

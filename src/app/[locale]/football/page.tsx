@@ -1,5 +1,6 @@
 import { getArticlesByCategory } from '@/lib/articles';
 import CategoryPageClient from '@/components/article/CategoryPageClient';
+import { PageLayout } from '@/components/layout/PageLayout';
 import { Article } from '@/types/article';
 
 // Force static export for GitHub Pages
@@ -27,12 +28,14 @@ export default async function FootballPage({ params }: FootballPageProps) {
   }));
 
   return (
-    <CategoryPageClient
-      initialArticles={articles}
-      categoryKey="football"
-      categoryIcon="⚽"
-      locale={locale}
-    />
+    <PageLayout>
+      <CategoryPageClient
+        initialArticles={articles}
+        categoryKey="football"
+        categoryIcon="⚽"
+        locale={locale}
+      />
+    </PageLayout>
   );
 }
 

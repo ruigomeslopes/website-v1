@@ -1,5 +1,6 @@
 import { getArticlesByCategory } from '@/lib/articles';
 import CategoryPageClient from '@/components/article/CategoryPageClient';
+import { PageLayout } from '@/components/layout/PageLayout';
 import { Article } from '@/types/article';
 
 // Force static export for GitHub Pages
@@ -25,12 +26,14 @@ export default async function BooksPage({ params }: BooksPageProps) {
   }));
 
   return (
-    <CategoryPageClient
-      initialArticles={articles}
-      categoryKey="books"
-      categoryIcon="📚"
-      locale={locale}
-    />
+    <PageLayout>
+      <CategoryPageClient
+        initialArticles={articles}
+        categoryKey="books"
+        categoryIcon="📚"
+        locale={locale}
+      />
+    </PageLayout>
   );
 }
 

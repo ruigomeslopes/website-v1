@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import { PageLayout } from '@/components/layout/PageLayout';
 import { Container } from '@/components/ui/Container';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
@@ -195,7 +196,11 @@ function AboutPageContent({ locale }: { locale: string }) {
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
 
-  return <AboutPageContent locale={locale} />;
+  return (
+    <PageLayout>
+      <AboutPageContent locale={locale} />
+    </PageLayout>
+  );
 }
 
 // Generate static params for both locales

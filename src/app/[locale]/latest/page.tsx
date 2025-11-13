@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { getAllArticlesWithCategory } from '@/lib/articles';
 import LatestPageClient from '@/components/article/LatestPageClient';
+import { PageLayout } from '@/components/layout/PageLayout';
 import { Article } from '@/types/article';
 import type { Metadata } from 'next';
 
@@ -42,7 +43,15 @@ export default async function LatestPage({ params }: LatestPageProps) {
 
   // Convert to Article format for the client component
   const articles: Article[] = articleListItems.map((item) => ({
-    frontmatter: item.frontmatter as any, // Cast to full ArticleFrontmatter
+    frontmatter: {
+      title: item.title,
+      slug: item.slug,
+      locale: item.locale,
+      date: item.date,
+      excerpt: item.description || '',
+      image: item.image,
+      tags: item.tags,
+    } as any, // Cast to full ArticleFrontmatter
     content: '', // We don't need full content for listing
     readingTime: item.readingTime,
     slug: item.slug,
@@ -50,7 +59,11 @@ export default async function LatestPage({ params }: LatestPageProps) {
     category: item.category,
   }));
 
-  return <LatestPageClient initialArticles={articles} locale={locale} />;
+  return (
+    <PageLayout>
+      <LatestPageClient initialArticles={articles} locale={locale} />
+    </PageLayout>
+  );
 }
 
 // Generate static params for both locales
