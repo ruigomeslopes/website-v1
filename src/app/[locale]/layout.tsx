@@ -4,9 +4,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
-import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import '../globals.css'
 
 // Google Fonts
 const inter = Inter({
@@ -52,9 +50,8 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${inter.variable} ${merriweather.variable}`}>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <Header />
           {children}
           <Footer />
         </NextIntlClientProvider>

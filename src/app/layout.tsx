@@ -11,9 +11,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html>
-      <body>{children}</body>
-    </html>
-  )
+  // Pass-through layout: the [locale] layout will provide html/body tags
+  return children
 }
