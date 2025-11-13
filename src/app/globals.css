@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* ============================================
    CSS VARIABLES - DESIGN SYSTEM
@@ -183,58 +185,224 @@ a:hover {
 }
 
 /* ============================================
-   TAILWIND V4 CONFIGURATION (@theme)
+   TAILWIND V3 CONFIGURATION
+   ============================================ */
+/* Custom colors, fonts, and theme extensions are configured in tailwind.config.js */
+
+/* ============================================
+   CUSTOM ANIMATIONS
    ============================================ */
 
-@theme {
-  /* Extended colors using CSS variables */
-  --color-bg-primary: var(--bg-primary);
-  --color-bg-secondary: var(--bg-secondary);
-  --color-bg-tertiary: var(--bg-tertiary);
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-tertiary: var(--text-tertiary);
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
 
-  --color-accent-primary: var(--accent-primary);
-  --color-accent-secondary: var(--accent-secondary);
-  --color-accent-hover: var(--accent-hover);
+/* Slide In From Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-  --color-border-primary: var(--border-primary);
-  --color-border-secondary: var(--border-secondary);
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
 
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-error: var(--error);
-  --color-info: var(--info);
+/* Slide In From Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-  /* Font families */
-  --font-family-heading: var(--font-heading);
-  --font-family-body: var(--font-body);
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out forwards;
+}
 
-  /* Font sizes */
-  --font-size-xs: var(--text-xs);
-  --font-size-sm: var(--text-sm);
-  --font-size-base: var(--text-base);
-  --font-size-lg: var(--text-lg);
-  --font-size-xl: var(--text-xl);
-  --font-size-2xl: var(--text-2xl);
-  --font-size-3xl: var(--text-3xl);
-  --font-size-4xl: var(--text-4xl);
+/* Pulse Animation for Active Indicators */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
 
-  /* Box shadows */
-  --box-shadow-sm: var(--shadow-sm);
-  --box-shadow-md: var(--shadow-md);
-  --box-shadow-lg: var(--shadow-lg);
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
 
-  /* Transition durations */
-  --transition-duration-fast: 150ms;
-  --transition-duration-base: 250ms;
-  --transition-duration-slow: 350ms;
+/* Bounce Animation for Scroll Hint */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
 
-  /* Max widths */
-  --max-width-container: var(--container-max-width);
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
 
-  /* Spacing */
-  --spacing-header: var(--header-height);
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Surface Colors for Dock */
+.bg-surface-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-surface-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.text-text-primary {
+  color: var(--text-primary);
+}
+
+.text-text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-accent-primary {
+  color: var(--accent-primary);
+}
+
+.text-accent-secondary {
+  color: var(--accent-secondary);
+}
+
+.bg-accent-primary {
+  background-color: var(--accent-primary);
+}
+
+.bg-accent-secondary {
+  background-color: var(--accent-secondary);
+}
+
+.border-border-primary {
+  border-color: var(--border-primary);
+}
+
+.border-border-secondary {
+  border-color: var(--border-secondary);
+}
+
+.border-bg-primary {
+  border-color: var(--bg-primary);
+}
+
+.border-bg-secondary {
+  border-color: var(--bg-secondary);
+}
+
+.bg-surface-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
+.hover\:bg-surface-tertiary:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR STYLES
+   ============================================ */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 4px;
+  transition: background var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-primary) var(--bg-secondary);
+}
+
+/* Hide scrollbar for timeline containers (aesthetic choice) */
+.timeline-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 3px;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* Ring color utilities */
+.ring-bg-primary {
+  --tw-ring-color: var(--bg-primary);
+}
+
+.ring-bg-secondary {
+  --tw-ring-color: var(--bg-secondary);
+}
+
+/* ============================================
+   TIMELINE CUSTOM STYLES
+   ============================================ */
+
+/* Hide scrollbars but keep scroll functionality */
+.timeline-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.timeline-scroll::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
 }
