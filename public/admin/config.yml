@@ -1,0 +1,235 @@
+# Decap CMS Configuration
+# Documentation: https://decapcms.org/docs/configuration-options/
+
+# Local development backend (run: npx decap-server)
+local_backend: true
+
+# Backend configuration
+# Production: Uses GitHub OAuth authentication (via Netlify provider)
+# Development: Uses local_backend proxy (npx decap-server)
+backend:
+  name: github
+  repo: ruigomeslopes/website-v1
+  branch: main
+
+# Media folder configuration
+media_folder: "public/uploads" # Where files will be stored
+public_folder: "/uploads" # URL path to access files
+
+# Site URL (Netlify production)
+site_url: https://ruigomeslopes.netlify.app
+# logo_url: /images/logo.png # Optional: Add your logo
+
+# Locale configuration
+locale: "pt"
+
+# Collections configuration (one per category)
+collections:
+  # ========================================
+  # FOOTBALL ARTICLES
+  # ========================================
+  - name: "football"
+    label: "⚽ Football"
+    label_singular: "Football Article"
+    folder: "src/content/football"
+    create: true
+    extension: "mdx"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    path: "{{locale}}/{{slug}}"
+    media_folder: "public/uploads/football"
+    public_folder: "/uploads/football"
+    fields:
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true, hint: "URL-friendly version (ex: analise-tatica-city-arsenal)" }
+      - { label: "Idioma", name: "locale", widget: "select", options: ["pt", "en"], default: "pt", required: true }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: true, hint: "Breve descrição do artigo (1-2 frases)" }
+      - { label: "Imagem Destaque", name: "image", widget: "image", required: true, hint: "Imagem principal do artigo" }
+      - { label: "Equipas", name: "teams", widget: "string", required: true, hint: "Ex: Manchester City vs Arsenal" }
+      - { label: "Competição", name: "competition", widget: "string", required: true, hint: "Ex: Premier League, Champions League" }
+      - { label: "Data do Jogo", name: "matchDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Resultado", name: "result", widget: "string", required: true, hint: "Ex: 3-1" }
+      - { label: "Tags", name: "tags", widget: "list", required: true, hint: "Palavras-chave (ex: Premier League, Análise Tática)" }
+      - { label: "Conteúdo", name: "body", widget: "markdown", required: true }
+
+  # ========================================
+  # MOTOGP ARTICLES
+  # ========================================
+  - name: "motogp"
+    label: "🏍️ MotoGP"
+    label_singular: "MotoGP Article"
+    folder: "src/content/motogp"
+    create: true
+    extension: "mdx"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    path: "{{locale}}/{{slug}}"
+    media_folder: "public/uploads/motogp"
+    public_folder: "/uploads/motogp"
+    fields:
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Idioma", name: "locale", widget: "select", options: ["pt", "en"], default: "pt", required: true }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: true }
+      - { label: "Imagem Destaque", name: "image", widget: "image", required: true }
+      - { label: "Nome do GP", name: "gpName", widget: "string", required: true, hint: "Ex: Grande Prémio de Portugal" }
+      - { label: "Circuito", name: "circuit", widget: "string", required: true, hint: "Ex: Autódromo Internacional do Algarve" }
+      - { label: "Data da Corrida", name: "matchDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Categoria", name: "category", widget: "select", options: ["MotoGP", "Moto2", "Moto3"], default: "MotoGP", required: true }
+      - { label: "Tags", name: "tags", widget: "list", required: true }
+      - { label: "Conteúdo", name: "body", widget: "markdown", required: true }
+
+  # ========================================
+  # GAMING REVIEWS
+  # ========================================
+  - name: "gaming"
+    label: "🎮 Gaming"
+    label_singular: "Gaming Review"
+    folder: "src/content/gaming"
+    create: true
+    extension: "mdx"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    path: "{{locale}}/{{slug}}"
+    media_folder: "public/uploads/gaming"
+    public_folder: "/uploads/gaming"
+    fields:
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Idioma", name: "locale", widget: "select", options: ["pt", "en"], default: "pt", required: true }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: true }
+      - { label: "Imagem Destaque", name: "image", widget: "image", required: true }
+      - { label: "Plataforma", name: "platform", widget: "string", required: true, hint: "Ex: PS5, Xbox Series X, PC" }
+      - { label: "Developer", name: "developer", widget: "string", required: true }
+      - { label: "Ano de Lançamento", name: "releaseYear", widget: "number", value_type: "int", required: true }
+      - { label: "Horas Jogadas", name: "hoursPlayed", widget: "number", value_type: "int", required: true }
+      - { label: "Platina Conquistada?", name: "platinumed", widget: "boolean", default: false, required: true }
+      - { label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 10, default: 5, required: true, hint: "Escala de 1 a 10" }
+      - { label: "Tags", name: "tags", widget: "list", required: true }
+      - { label: "Conteúdo", name: "body", widget: "markdown", required: true }
+
+  # ========================================
+  # BOOKS REVIEWS
+  # ========================================
+  - name: "books"
+    label: "📚 Books"
+    label_singular: "Book Review"
+    folder: "src/content/books"
+    create: true
+    extension: "mdx"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    path: "{{locale}}/{{slug}}"
+    media_folder: "public/uploads/books"
+    public_folder: "/uploads/books"
+    fields:
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Idioma", name: "locale", widget: "select", options: ["pt", "en"], default: "pt", required: true }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: true }
+      - { label: "Imagem Destaque", name: "image", widget: "image", required: true, hint: "Capa do livro" }
+      - { label: "Autor", name: "author", widget: "string", required: true }
+      - { label: "Género", name: "genre", widget: "string", required: true, hint: "Ex: Ficção Científica, Romance, Biografia" }
+      - { label: "Páginas", name: "pages", widget: "number", value_type: "int", required: true }
+      - { label: "Data de Leitura", name: "dateRead", widget: "string", required: true, hint: "Ex: Outubro 2025" }
+      - { label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, default: 3, required: true, hint: "Escala de 1 a 5 estrelas" }
+      - { label: "A Ler Atualmente?", name: "currentlyReading", widget: "boolean", default: false, required: false }
+      - { label: "Página Atual", name: "currentPage", widget: "number", value_type: "int", required: false, hint: "Apenas se estiver a ler atualmente" }
+      - { label: "Tags", name: "tags", widget: "list", required: true }
+      - { label: "Conteúdo", name: "body", widget: "markdown", required: true }
+
+  # ========================================
+  # MOVIES REVIEWS
+  # ========================================
+  - name: "movies"
+    label: "🎬 Movies"
+    label_singular: "Movie Review"
+    folder: "src/content/movies"
+    create: true
+    extension: "mdx"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    path: "{{locale}}/{{slug}}"
+    media_folder: "public/uploads/movies"
+    public_folder: "/uploads/movies"
+    fields:
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Idioma", name: "locale", widget: "select", options: ["pt", "en"], default: "pt", required: true }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: true }
+      - { label: "Imagem Destaque", name: "image", widget: "image", required: true, hint: "Poster do filme" }
+      - { label: "Realizador", name: "director", widget: "string", required: true }
+      - { label: "Ano de Lançamento", name: "releaseYear", widget: "number", value_type: "int", required: true }
+      - { label: "Género", name: "genre", widget: "string", required: true, hint: "Ex: Drama, Ação, Comédia" }
+      - { label: "Duração (minutos)", name: "runtime", widget: "number", value_type: "int", required: true }
+      - { label: "Onde Vi", name: "whereWatched", widget: "string", required: true, hint: "Ex: Cinema, Netflix, Disney+" }
+      - { label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, default: 3, required: true, hint: "Escala de 1 a 5 estrelas" }
+      - { label: "Tags", name: "tags", widget: "list", required: true }
+      - { label: "Conteúdo", name: "body", widget: "markdown", required: true }
+
+  # ========================================
+  # TV SHOWS REVIEWS
+  # ========================================
+  - name: "tvshows"
+    label: "📺 TV Shows"
+    label_singular: "TV Show Review"
+    folder: "src/content/tvshows"
+    create: true
+    extension: "mdx"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    path: "{{locale}}/{{slug}}"
+    media_folder: "public/uploads/tvshows"
+    public_folder: "/uploads/tvshows"
+    fields:
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Idioma", name: "locale", widget: "select", options: ["pt", "en"], default: "pt", required: true }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: true }
+      - { label: "Imagem Destaque", name: "image", widget: "image", required: true, hint: "Poster da série" }
+      - { label: "Criador", name: "creator", widget: "string", required: true }
+      - { label: "Temporadas", name: "seasons", widget: "number", value_type: "int", required: true }
+      - { label: "Episódios (Total)", name: "episodes", widget: "number", value_type: "int", required: true }
+      - { label: "Plataforma", name: "platform", widget: "string", required: true, hint: "Ex: Netflix, HBO Max, Disney+" }
+      - { label: "Estado", name: "status", widget: "select", options: ["Em curso", "Concluída", "Cancelada"], default: "Em curso", required: true }
+      - { label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, default: 3, required: true, hint: "Escala de 1 a 5 estrelas" }
+      - { label: "Tags", name: "tags", widget: "list", required: true }
+      - { label: "Conteúdo", name: "body", widget: "markdown", required: true }
+
+  # ========================================
+  # TRAVEL DIARIES
+  # ========================================
+  - name: "travel"
+    label: "✈️ Travel"
+    label_singular: "Travel Diary"
+    folder: "src/content/travel"
+    create: true
+    extension: "mdx"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    path: "{{locale}}/{{slug}}"
+    media_folder: "public/uploads/travel"
+    public_folder: "/uploads/travel"
+    fields:
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", required: true }
+      - { label: "Idioma", name: "locale", widget: "select", options: ["pt", "en"], default: "pt", required: true }
+      - { label: "Data de Publicação", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Resumo", name: "excerpt", widget: "text", required: true }
+      - { label: "Imagem Destaque", name: "image", widget: "image", required: true }
+      - { label: "Destino", name: "destination", widget: "string", required: true, hint: "Ex: Lisboa, Tóquio, Paris" }
+      - { label: "País", name: "country", widget: "string", required: true }
+      - { label: "Data de Início", name: "tripStartDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Data de Fim", name: "tripEndDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, default: 3, required: true, hint: "Escala de 1 a 5 estrelas" }
+      - { label: "Nível de Orçamento", name: "budgetLevel", widget: "select", options: ["Económico", "Médio", "Luxo"], default: "Médio", required: true }
+      - { label: "Região", name: "region", widget: "string", required: true, hint: "Ex: Europa, Ásia, América do Norte" }
+      - { label: "Galeria de Fotos", name: "gallery", widget: "list", required: false, hint: "URLs das fotos adicionais" }
+      - { label: "Tags", name: "tags", widget: "list", required: true }
+      - { label: "Conteúdo", name: "body", widget: "markdown", required: true }
