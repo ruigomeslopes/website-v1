@@ -42,18 +42,21 @@ export function HeroMobile() {
 
       {/* Viewport 2: Navigable Phrases */}
       <section className="relative min-h-screen w-full flex items-center justify-center bg-bg-primary px-6">
-        <div className="max-w-lg space-y-6">
+        <div className="max-w-lg space-y-5">
           <NavigableText
             text={t('homepage.navigableText.phrase1')}
-            className="text-base sm:text-lg text-text-secondary leading-relaxed text-center"
+            className="text-sm sm:text-base lg:text-lg text-text-primary leading-relaxed font-light tracking-wide text-center"
+            showEmojis={true}
           />
           <NavigableText
             text={t('homepage.navigableText.phrase2')}
-            className="text-base sm:text-lg text-text-secondary leading-relaxed text-center"
+            className="text-sm sm:text-base lg:text-lg text-text-primary leading-relaxed font-light tracking-wide text-center"
+            showEmojis={true}
           />
           <NavigableText
             text={t('homepage.navigableText.phrase3')}
-            className="text-base sm:text-lg text-text-secondary leading-relaxed text-center"
+            className="text-sm sm:text-base lg:text-lg text-text-primary leading-relaxed font-light tracking-wide text-center"
+            showEmojis={true}
           />
         </div>
 

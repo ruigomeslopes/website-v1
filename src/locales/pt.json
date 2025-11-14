@@ -95,9 +95,9 @@
     "error": "Erro",
     "continueToPhase": "Continuar para Phase {phase}",
     "navigableText": {
-      "phrase1": "Do **futebol** às pistas de **MotoGP**, das **viagens** pelo mundo aos mundos virtuais do **gaming**, passando por **livros**, **filmes** e **séries** - conto histórias sobre o que me move.",
-      "phrase2": "Analiso **futebol** e **MotoGP** com rigor jornalístico. Partilho **viagens**, **livros**, **filmes**, **séries** e **gaming** com paixão autêntica.",
-      "phrase3": "Dos relvados ao asfalto das pistas, das páginas aos ecrãs, dos mundos virtuais aos destinos reais - escrevo sobre **futebol**, **MotoGP**, **livros**, **filmes**, **séries**, **gaming** e **viagens**."
+      "phrase1": "Análises de **futebol** e **MotoGP**.",
+      "phrase2": "Críticas de **gaming**, **filmes** e **séries**.",
+      "phrase3": "Histórias de **viagens** e **livros**."
     },
     "timeline": {
       "title": "Últimas Publicações",

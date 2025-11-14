@@ -95,9 +95,9 @@
     "error": "Error",
     "continueToPhase": "Continue to Phase {phase}",
     "navigableText": {
-      "phrase1": "From **football** to **MotoGP** circuits, from **travels** around the world to virtual **gaming** worlds, through **books**, **movies** and **TV shows** - I tell stories about what moves me.",
-      "phrase2": "I analyze **football** and **MotoGP** with journalistic rigor. I share **travels**, **books**, **movies**, **TV shows** and **gaming** with authentic passion.",
-      "phrase3": "From pitches to race circuits, from pages to screens, from virtual worlds to real destinations - I write about **football**, **MotoGP**, **books**, **movies**, **TV shows**, **gaming** and **travels**."
+      "phrase1": "**Football** and **MotoGP** analysis.",
+      "phrase2": "**Gaming**, **movie** and **TV show** reviews.",
+      "phrase3": "**Travel** and **book** stories."
     },
     "timeline": {
       "title": "Latest Publications",

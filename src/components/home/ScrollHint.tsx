@@ -28,8 +28,8 @@ export function ScrollHint({ position = 'center', onClick, isVisible = true }: S
   return (
     <button
       onClick={handleClick}
-      className={`absolute bottom-8 ${positionClasses[position]} flex flex-col items-center gap-2 text-text-secondary hover:text-accent-primary transition-all duration-700 ease-in-out cursor-pointer group ${
-        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      className={`absolute bottom-8 ${positionClasses[position]} flex flex-col items-center gap-2 text-text-secondary hover:text-accent-primary hover:opacity-100 transition-all duration-700 ease-in-out cursor-pointer group ${
+        isVisible ? 'opacity-70' : 'opacity-0 pointer-events-none'
       }`}
       aria-label={t('homepage.scrollHint')}
     >

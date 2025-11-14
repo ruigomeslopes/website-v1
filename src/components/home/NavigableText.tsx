@@ -2,10 +2,12 @@
 
 import { Link } from '@/i18n/routing';
 import { useParams } from 'next/navigation';
+import { getCategoryEmoji } from '@/utils/categoryEmoji';
 
 interface NavigableTextProps {
   text: string;
   className?: string;
+  showEmojis?: boolean;
 }
 
 const categoryMap: { [key: string]: string } = {
@@ -24,7 +26,7 @@ const categoryMap: { [key: string]: string } = {
   'travel': 'travel'
 };
 
-export function NavigableText({ text, className = '' }: NavigableTextProps) {
+export function NavigableText({ text, className = '', showEmojis = false }: NavigableTextProps) {
   const params = useParams();
   const locale = params.locale as string;
 
@@ -41,13 +43,38 @@ export function NavigableText({ text, className = '' }: NavigableTextProps) {
           const categoryKey = categoryMap[normalizedWord];
 
           if (categoryKey) {
+            const emoji = getCategoryEmoji(categoryKey);
+
             return (
               <Link
                 key={index}
-                href={`/${locale}/${categoryKey}`}
-                className="text-accent-primary hover:text-accent-secondary transition-colors duration-200 font-medium underline decoration-accent-primary/30 hover:decoration-accent-secondary underline-offset-4"
+                href={`/${categoryKey}`}
+                className="group inline-flex items-center gap-1.5 relative
+                  text-accent-primary font-medium
+
+                  /* Elegant gradient underline */
+                  bg-gradient-to-r from-accent-primary/40 via-accent-secondary/60 to-accent-primary/40
+                  bg-[length:100%_1.5px] bg-no-repeat bg-[position:0_100%]
+
+                  /* Interactive hover effects */
+                  hover:bg-[length:100%_2px]
+                  hover:text-accent-hover
+                  hover:-translate-y-[2px]
+
+                  /* Smooth transitions */
+                  transition-all duration-300 ease-out
+
+                  /* Focus accessibility */
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary
+                  rounded-sm
+                "
               >
-                {word}
+                {showEmojis && emoji && (
+                  <span className="text-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                    {emoji}
+                  </span>
+                )}
+                <span className="relative">{word}</span>
               </Link>
             );
           }

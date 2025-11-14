@@ -29,14 +29,14 @@ export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
       {/* Split Screen Container */}
       <div className="flex-1 grid grid-cols-2">
         {/* Left Side - Content */}
-        <div className="relative flex flex-col justify-center items-start px-12 lg:px-16 xl:px-24 pb-32 bg-bg-primary">
-          <div className="max-w-xl space-y-6">
+        <div className="relative flex flex-col justify-start items-start px-8 lg:px-12 xl:px-16 pt-10 pb-10 bg-bg-primary">
+          <div className="max-w-xl space-y-5">
             {/* Name */}
             <div className="space-y-2">
-              <h1 className="text-7xl lg:text-8xl xl:text-9xl font-bold text-text-primary tracking-tight">
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-bold text-text-primary tracking-tight">
                 Rui
               </h1>
-              <h1 className="text-7xl lg:text-8xl xl:text-9xl font-bold text-text-primary tracking-tight">
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-bold text-text-primary tracking-tight">
                 Lopes
               </h1>
             </div>
@@ -52,24 +52,24 @@ export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
             </div>
 
             {/* Navigable Text */}
-            <div className="pt-8 mt-8 border-t border-border-primary space-y-4">
+            <div className="pt-6 mt-6 border-t border-border-primary space-y-4">
               <NavigableText
                 text={t('homepage.navigableText.phrase1')}
-                className="text-base text-text-secondary leading-relaxed"
+                className="text-sm sm:text-base lg:text-lg text-text-primary leading-relaxed font-light tracking-wide"
+                showEmojis={true}
               />
               <NavigableText
                 text={t('homepage.navigableText.phrase2')}
-                className="text-base text-text-secondary leading-relaxed"
+                className="text-sm sm:text-base lg:text-lg text-text-primary leading-relaxed font-light tracking-wide"
+                showEmojis={true}
               />
               <NavigableText
                 text={t('homepage.navigableText.phrase3')}
-                className="text-base text-text-secondary leading-relaxed"
+                className="text-sm sm:text-base lg:text-lg text-text-primary leading-relaxed font-light tracking-wide"
+                showEmojis={true}
               />
             </div>
           </div>
-
-          {/* Left Scroll Hint */}
-          <ScrollHint position="left" onClick={onScrollClick} isVisible={showScrollHint} />
         </div>
 
         {/* Right Side - Photo */}
@@ -86,10 +86,15 @@ export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
 
           {/* Subtle gradient overlay for depth */}
           <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10" />
-
-          {/* Right Scroll Hint */}
-          <ScrollHint position="right" onClick={onScrollClick} isVisible={showScrollHint} />
         </div>
+      </div>
+
+      {/* Scroll Hints - Positioned on Section */}
+      <div className="absolute bottom-14 left-8 z-10">
+        <ScrollHint position="left" onClick={onScrollClick} isVisible={showScrollHint} />
+      </div>
+      <div className="absolute bottom-14 right-8 z-10">
+        <ScrollHint position="right" onClick={onScrollClick} isVisible={showScrollHint} />
       </div>
 
       {/* Dock Navigation - Centered */}
