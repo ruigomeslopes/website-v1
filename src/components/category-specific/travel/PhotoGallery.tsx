@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { getImagePath } from '@/utils/getImagePath';
 
 interface PhotoGalleryProps {
   images: string[];
@@ -56,7 +57,7 @@ export default function PhotoGallery({ images, alt = 'Gallery image' }: PhotoGal
               className="relative aspect-video overflow-hidden rounded-lg hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent"
             >
               <Image
-                src={image}
+                src={getImagePath(image)}
                 alt={`${alt} ${index + 1}`}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
@@ -103,7 +104,7 @@ export default function PhotoGallery({ images, alt = 'Gallery image' }: PhotoGal
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={images[currentImageIndex]}
+              src={getImagePath(images[currentImageIndex])}
               alt={`${alt} ${currentImageIndex + 1}`}
               fill
               sizes="100vw"
