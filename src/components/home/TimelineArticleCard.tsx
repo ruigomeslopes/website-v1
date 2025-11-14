@@ -6,6 +6,7 @@ import { Link } from '@/i18n/routing'
 import { Calendar, Clock, Tag } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 import type { ArticleWithCategory } from '@/types/article'
+import { getImagePath } from '@/utils/getImagePath'
 
 interface TimelineArticleCardProps {
   article: ArticleWithCategory
@@ -64,7 +65,7 @@ export default function TimelineArticleCard({ article, locale }: TimelineArticle
           >
             {article.image ? (
               <Image
-                src={article.image}
+                src={getImagePath(article.image)}
                 alt={article.title}
                 fill
                 className="object-cover"
