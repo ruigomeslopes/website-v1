@@ -38,17 +38,12 @@ export default function RootPage() {
   }, [mounted])
 
   // Show a minimal loading state while redirecting
-  // Note: This page provides its own HTML structure since it's not under [locale]
   return (
-    <html lang="en">
-      <body>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto mb-4"></div>
-            <p className="text-text-secondary">Loading...</p>
-          </div>
-        </div>
-      </body>
-    </html>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto mb-4"></div>
+        <p className="text-text-secondary">Loading...</p>
+      </div>
+    </div>
   )
 }
