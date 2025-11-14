@@ -3,6 +3,7 @@ import { Calendar, Clock, User } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { formatDate } from '@/lib/utils';
 import type { BaseFrontmatter } from '@/types/article';
+import { getImagePath } from '@/utils/getImagePath';
 
 interface ArticleHeroProps {
   frontmatter: BaseFrontmatter;
@@ -19,7 +20,7 @@ export default function ArticleHero({ frontmatter, readingTime, locale }: Articl
       {/* Featured Image */}
       <div className="relative mb-8 aspect-video w-full overflow-hidden rounded-2xl border-2 border-border-primary">
         <Image
-          src={image}
+          src={getImagePath(image)}
           alt={title}
           fill
           className="object-cover"
