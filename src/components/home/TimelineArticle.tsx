@@ -4,6 +4,7 @@ import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Calendar, Clock, Trophy, Bike, Gamepad2, BookOpen, Film, Tv, Plane } from 'lucide-react';
+import { getImagePath } from '@/utils/getImagePath';
 
 interface TimelineArticleProps {
   title: string;
@@ -69,7 +70,7 @@ export function TimelineArticle({
         {/* Image Container */}
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-bg-secondary">
           <Image
-            src={image}
+            src={getImagePath(image)}
             alt={title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
