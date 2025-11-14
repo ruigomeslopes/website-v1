@@ -29,7 +29,7 @@ export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
       {/* Split Screen Container */}
       <div className="flex-1 grid grid-cols-2">
         {/* Left Side - Content */}
-        <div className="relative flex flex-col justify-center items-start px-12 lg:px-16 xl:px-24 bg-bg-primary">
+        <div className="relative flex flex-col justify-center items-start px-12 lg:px-16 xl:px-24 pb-32 bg-bg-primary">
           <div className="max-w-xl space-y-6">
             {/* Name */}
             <div className="space-y-2">
