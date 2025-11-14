@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Article } from '@/types/article';
 import { formatDate, getCategoryFromFrontmatter } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
+import { getImagePath } from '@/utils/getImagePath';
 
 interface ArticleListItemProps {
   article: Article;
@@ -26,7 +27,7 @@ export default function ArticleListItem({ article, locale }: ArticleListItemProp
         {coverImage && (
           <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-2xl bg-bg-secondary border-2 border-border-primary">
             <Image
-              src={coverImage}
+              src={getImagePath(coverImage)}
               alt={title}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
