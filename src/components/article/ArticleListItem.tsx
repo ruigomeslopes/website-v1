@@ -17,7 +17,7 @@ export default function ArticleListItem({ article, locale }: ArticleListItemProp
 
   // Determine category from frontmatter structure
   const category = getCategoryFromFrontmatter(frontmatter);
-  const articleUrl = `/${locale}/${category}/${slug}`;
+  const articleUrl = `/${category}/${slug}`;
 
   return (
     <Link href={articleUrl} className="block group">

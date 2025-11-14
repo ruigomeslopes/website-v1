@@ -9,13 +9,13 @@ export default function CategoryGrid() {
   const locale = params.locale as Locale
 
   const categories = [
-    { emoji: '⚽', key: 'football', href: `/${locale}/football` },
-    { emoji: '🏍️', key: 'motogp', href: `/${locale}/motogp` },
-    { emoji: '🎮', key: 'gaming', href: `/${locale}/gaming` },
-    { emoji: '🎬', key: 'movies', href: `/${locale}/movies` },
-    { emoji: '📺', key: 'tvshows', href: `/${locale}/tvshows` },
-    { emoji: '📚', key: 'books', href: `/${locale}/books` },
-    { emoji: '✈️', key: 'travel', href: `/${locale}/travel` },
+    { emoji: '⚽', key: 'football', href: '/football' },
+    { emoji: '🏍️', key: 'motogp', href: '/motogp' },
+    { emoji: '🎮', key: 'gaming', href: '/gaming' },
+    { emoji: '🎬', key: 'movies', href: '/movies' },
+    { emoji: '📺', key: 'tvshows', href: '/tvshows' },
+    { emoji: '📚', key: 'books', href: '/books' },
+    { emoji: '✈️', key: 'travel', href: '/travel' },
   ]
 
   return (

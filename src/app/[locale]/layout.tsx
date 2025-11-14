@@ -57,7 +57,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${merriweather.variable}`}>
       <body className="flex flex-col min-h-screen" suppressHydrationWarning>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <WebVitals />
           {children}
           <Footer columnsCount={stats.columnsCount} />

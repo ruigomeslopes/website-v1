@@ -58,7 +58,7 @@ export default function Breadcrumbs({ category, articleTitle, locale, articleSlu
         {/* Home */}
         <li>
           <Link
-            href={`/${locale}`}
+            href="/"
             className="hover:text-accent-primary transition-colors"
           >
             {homeText}
@@ -73,7 +73,7 @@ export default function Breadcrumbs({ category, articleTitle, locale, articleSlu
         {/* Category */}
         <li>
           <Link
-            href={`/${locale}/${category}`}
+            href={`/${category}`}
             className="hover:text-accent-primary transition-colors"
           >
             {categoryName}

@@ -51,7 +51,7 @@ export function TimelineArticle({
 
   return (
     <Link
-      href={`/${locale}/${category}/${slug}`}
+      href={`/${category}/${slug}`}
       className="group block"
     >
       <div
