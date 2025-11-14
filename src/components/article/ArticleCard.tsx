@@ -5,6 +5,7 @@ import { Article } from '@/types/article';
 import { formatDate, getCategoryFromFrontmatter } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
+import { getImagePath } from '@/utils/getImagePath';
 
 interface ArticleCardProps {
   article: Article;
@@ -27,7 +28,7 @@ export default function ArticleCard({ article, locale }: ArticleCardProps) {
         {coverImage && (
           <div className="relative aspect-video w-full overflow-hidden bg-bg-secondary">
             <Image
-              src={coverImage}
+              src={getImagePath(coverImage)}
               alt={title}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
