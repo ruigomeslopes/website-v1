@@ -19,7 +19,7 @@ export default function CategoryGrid() {
   ]
 
   return (
-    <section id="categories" className="py-12 md:py-16 bg-surface-primary">
+    <section id="categories" className="py-12 md:py-16 bg-bg-primary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Grid - Responsive: 1 col mobile, 2 cols tablet, 3-4 cols desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">

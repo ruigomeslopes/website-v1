@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { ArrowRight, ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from 'lucide-react';
+import { Link } from '@/i18n/routing';
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from 'lucide-react';
 import { TimelineArticle } from './TimelineArticle';
 import { ArticleWithCategory } from '@/types/article';
 
@@ -24,7 +24,8 @@ export function TimelineSection({ articles, locale }: TimelineSectionProps) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const desktopScrollRef = useRef<HTMLDivElement>(null);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
 
   // Responsive article limit: 12 for desktop, 8 for mobile
   useEffect(() => {
@@ -57,39 +58,60 @@ export function TimelineSection({ articles, locale }: TimelineSectionProps) {
   }, []);
 
   // Handle scroll events
-  const handleScroll = () => {
-    if (!scrollContainerRef.current) return;
+  const handleScroll = useCallback(() => {
+    const container = isMobile ? mobileScrollRef.current : desktopScrollRef.current;
+    if (!container) return;
 
-    const container = scrollContainerRef.current;
     const scrollPos = isMobile ? container.scrollTop : container.scrollLeft;
     const scrollSize = isMobile ? container.scrollHeight - container.clientHeight : container.scrollWidth - container.clientWidth;
 
+    // Desktop RTL: scrollLeft is 0 at right (newest), negative when scrolled left (older)
+    // Use absolute value for RTL calculations
+    const absScrollPos = Math.abs(scrollPos);
+
     // Update progress (0-100%)
-    const progress = scrollSize > 0 ? (scrollPos / scrollSize) * 100 : 0;
+    const progress = scrollSize > 0 ? (absScrollPos / scrollSize) * 100 : 0;
     setScrollProgress(progress);
 
     // Update navigation button states
-    setCanScrollPrev(scrollPos > 10);
-    setCanScrollNext(scrollPos < scrollSize - 10);
-  };
+    // Desktop RTL: prev = go LEFT (older), next = go RIGHT (newer)
+    // scrollLeft = 0 (newest/right): canScrollPrev = true (can go left), canScrollNext = false
+    // scrollLeft < 0 (scrolled left): canScrollNext = true (can go back right)
+    // scrollLeft at max left (oldest): canScrollPrev = false, canScrollNext = true
+    if (!isMobile) {
+      setCanScrollPrev(absScrollPos < scrollSize - 10); // Not at max left, can go more LEFT (older)
+      setCanScrollNext(scrollPos < -10); // Scrolled left, can go back RIGHT (newer)
+    } else {
+      setCanScrollPrev(scrollPos > 10);
+      setCanScrollNext(scrollPos < scrollSize - 10);
+    }
+  }, [isMobile]);
 
   // Scroll to previous/next section
-  const scrollTo = (direction: 'prev' | 'next') => {
-    if (!scrollContainerRef.current) return;
+  const scrollTo = useCallback((direction: 'prev' | 'next') => {
+    const container = isMobile ? mobileScrollRef.current : desktopScrollRef.current;
+    if (!container) return;
 
-    const container = scrollContainerRef.current;
     const scrollAmount = isMobile ? container.clientHeight * 0.8 : container.clientWidth * 0.8;
     const currentScroll = isMobile ? container.scrollTop : container.scrollLeft;
-    const newScroll = direction === 'prev'
-      ? currentScroll - scrollAmount
-      : currentScroll + scrollAmount;
 
+    // Desktop RTL: scrollLeft is 0 at right (newest), negative when scrolled left (older)
+    // "prev" = go LEFT (older) = decrease scrollLeft (more negative)
+    // "next" = go RIGHT (newer) = increase scrollLeft (toward 0)
+    let newScroll;
     if (isMobile) {
+      newScroll = direction === 'prev'
+        ? currentScroll - scrollAmount
+        : currentScroll + scrollAmount;
       container.scrollTo({ top: newScroll, behavior: 'smooth' });
     } else {
+      // Desktop RTL
+      newScroll = direction === 'prev'
+        ? currentScroll - scrollAmount  // Go LEFT (older, more negative)
+        : currentScroll + scrollAmount; // Go RIGHT (newer, toward 0)
       container.scrollTo({ left: newScroll, behavior: 'smooth' });
     }
-  };
+  }, [isMobile]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -105,30 +127,29 @@ export function TimelineSection({ articles, locale }: TimelineSectionProps) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isMobile]);
+  }, [isMobile, scrollTo]);
 
   // Update scroll state on mount and scroll
   useEffect(() => {
-    const container = scrollContainerRef.current;
+    const container = isMobile ? mobileScrollRef.current : desktopScrollRef.current;
     if (!container) return;
 
     handleScroll();
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
+  }, [isMobile, handleScroll]);
 
-  // Scroll to the far right (newest content) on mount
+  // Mobile: Scroll to bottom (newest content) on mount
+  // Desktop: RTL handles initial position natively (no JS needed)
   useEffect(() => {
-    const container = scrollContainerRef.current;
+    if (!isMobile) return; // Desktop uses CSS direction: rtl
+
+    const container = mobileScrollRef.current;
     if (!container) return;
 
     // Small timeout to ensure content is rendered
     const timer = setTimeout(() => {
-      if (isMobile) {
-        container.scrollTop = container.scrollHeight - container.clientHeight;
-      } else {
-        container.scrollLeft = container.scrollWidth - container.clientWidth;
-      }
+      container.scrollTop = container.scrollHeight - container.clientHeight;
     }, 100);
 
     return () => clearTimeout(timer);
@@ -136,7 +157,7 @@ export function TimelineSection({ articles, locale }: TimelineSectionProps) {
 
   return (
     <section
-      className="relative py-20 lg:py-32 bg-surface-primary overflow-hidden"
+      className="relative py-28 lg:py-40 bg-bg-primary overflow-hidden"
       role="region"
       aria-label={locale === 'pt' ? 'Timeline de artigos recentes' : 'Recent articles timeline'}
     >
@@ -158,34 +179,12 @@ export function TimelineSection({ articles, locale }: TimelineSectionProps) {
         role="group"
         aria-label={locale === 'pt' ? 'Timeline horizontal de artigos' : 'Horizontal articles timeline'}
       >
-          {/* Navigation Buttons */}
-          {canScrollPrev && (
-            <button
-              onClick={() => scrollTo('prev')}
-              className="absolute left-4 top-[300px] -translate-y-1/2 z-20 bg-surface-primary/80 backdrop-blur-sm border border-border-primary/50 hover:border-accent-primary rounded-full p-2.5 shadow-md transition-all duration-200 hover:scale-110 animate-pulse hover:animate-none opacity-70 hover:opacity-100"
-              aria-label={locale === 'pt' ? 'Ver artigos anteriores' : 'View previous articles'}
-              title={locale === 'pt' ? 'Artigos anteriores' : 'Previous articles'}
-            >
-              <ChevronLeft className="w-5 h-5 text-text-primary" />
-            </button>
-          )}
-
-          {canScrollNext && (
-            <button
-              onClick={() => scrollTo('next')}
-              className="absolute right-4 top-[300px] -translate-y-1/2 z-20 bg-surface-primary/80 backdrop-blur-sm border border-border-primary/50 hover:border-accent-primary rounded-full p-2.5 shadow-md transition-all duration-200 hover:scale-110 animate-pulse hover:animate-none opacity-70 hover:opacity-100"
-              aria-label={locale === 'pt' ? 'Ver artigos seguintes' : 'View next articles'}
-              title={locale === 'pt' ? 'Artigos seguintes' : 'Next articles'}
-            >
-              <ChevronRight className="w-5 h-5 text-text-primary" />
-            </button>
-          )}
-
-          {/* Scroll Container - NO SCROLLBAR */}
+          {/* Scroll Container - NO SCROLLBAR - RTL for natural right-start */}
           <div
-            ref={scrollContainerRef}
+            ref={desktopScrollRef}
             className="timeline-scroll relative overflow-x-auto overflow-y-visible scroll-smooth"
             style={{
+              direction: 'rtl',
               scrollSnapType: 'x proximity',
               WebkitOverflowScrolling: 'touch'
             }}
@@ -193,11 +192,32 @@ export function TimelineSection({ articles, locale }: TimelineSectionProps) {
             role="feed"
             aria-label={locale === 'pt' ? 'Feed de artigos na timeline' : 'Articles timeline feed'}
           >
-            {/* Horizontal Timeline Line - positioned at center */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-border-primary via-accent-primary/30 to-border-primary -translate-y-1/2 z-10 pointer-events-none" />
+            {/* Navigation Buttons - positioned relative to scroll container */}
+            {canScrollPrev && (
+              <button
+                onClick={() => scrollTo('prev')}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-accent-primary hover:bg-accent-hover text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
+                aria-label={locale === 'pt' ? 'Ver artigos mais antigos' : 'View older articles'}
+                title={locale === 'pt' ? 'Artigos mais antigos' : 'Older articles'}
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+            )}
 
-            {/* Flex container - SINGLE row with all items */}
-            <div className="flex gap-8 items-center min-w-max px-12 py-[385px]">
+            {canScrollNext && (
+              <button
+                onClick={() => scrollTo('next')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-accent-primary hover:bg-accent-hover text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
+                aria-label={locale === 'pt' ? 'Ver artigos mais recentes' : 'View newer articles'}
+                title={locale === 'pt' ? 'Artigos mais recentes' : 'Newer articles'}
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            )}
+            {/* Flex container - SINGLE row with all items - LTR to preserve text direction */}
+            <div className="relative flex gap-8 items-center min-w-max px-12 py-[385px]" style={{ direction: 'ltr' }}>
+              {/* Horizontal Timeline Line - positioned at center, spans full content width */}
+              <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-border-primary via-accent-primary/30 to-border-primary -translate-y-1/2 z-10 pointer-events-none" />
               {groupedArticles.map((group, groupIndex) => {
                 const monthNames = locale === 'pt'
                   ? ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
@@ -273,28 +293,28 @@ export function TimelineSection({ articles, locale }: TimelineSectionProps) {
           {canScrollPrev && (
             <button
               onClick={() => scrollTo('prev')}
-              className="absolute left-1/2 -translate-x-1/2 -top-4 z-20 bg-surface-primary/80 backdrop-blur-sm border border-border-primary/50 hover:border-accent-primary rounded-full p-2 shadow-md transition-all duration-200 hover:scale-110 animate-pulse hover:animate-none opacity-70 hover:opacity-100"
+              className="absolute left-1/2 -translate-x-1/2 -top-4 z-20 bg-accent-primary hover:bg-accent-hover text-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
               aria-label={locale === 'pt' ? 'Ver artigos anteriores' : 'View previous articles'}
               title={locale === 'pt' ? 'Artigos anteriores' : 'Previous articles'}
             >
-              <ChevronUp className="w-4 h-4 text-text-primary" />
+              <ChevronUp className="w-4 h-4" />
             </button>
           )}
 
           {canScrollNext && (
             <button
               onClick={() => scrollTo('next')}
-              className="absolute left-1/2 -translate-x-1/2 -bottom-4 z-20 bg-surface-primary/80 backdrop-blur-sm border border-border-primary/50 hover:border-accent-primary rounded-full p-2 shadow-md transition-all duration-200 hover:scale-110 animate-pulse hover:animate-none opacity-70 hover:opacity-100"
+              className="absolute left-1/2 -translate-x-1/2 -bottom-4 z-20 bg-accent-primary hover:bg-accent-hover text-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
               aria-label={locale === 'pt' ? 'Ver artigos seguintes' : 'View next articles'}
               title={locale === 'pt' ? 'Artigos seguintes' : 'Next articles'}
             >
-              <ChevronDown className="w-4 h-4 text-text-primary" />
+              <ChevronDown className="w-4 h-4" />
             </button>
           )}
 
           {/* Scroll Container */}
           <div
-            ref={scrollContainerRef}
+            ref={mobileScrollRef}
             className="timeline-scroll relative overflow-y-visible overflow-x-visible scroll-smooth py-12"
             style={{
               scrollbarWidth: 'thin',
@@ -378,18 +398,6 @@ export function TimelineSection({ articles, locale }: TimelineSectionProps) {
           </div>
         </div>
 
-      {/* View All Button - Inside container */}
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="mt-16 text-center">
-          <Link
-            href={`/${locale}/latest`}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-accent-primary text-white font-medium hover:bg-accent-secondary transition-colors duration-200 shadow-lg hover:shadow-xl"
-          >
-            {t('homepage.timeline.viewAll')}
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
-      </div>
     </section>
   );
 }

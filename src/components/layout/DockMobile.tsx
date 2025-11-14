@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname, useParams } from 'next/navigation';
+import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { useLanguageSwitch } from '@/hooks/useLanguageSwitch';
 import {
   Menu,
   X,
@@ -37,8 +37,7 @@ interface DockItem {
 export function DockMobile({ className = '', forceHidden = false }: DockMobileProps) {
   const t = useTranslations();
   const pathname = usePathname();
-  const params = useParams();
-  const locale = params.locale as string;
+  const { currentLocale: locale, switchLanguage } = useLanguageSwitch();
 
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -83,26 +82,25 @@ export function DockMobile({ className = '', forceHidden = false }: DockMobilePr
 
   const toggleLanguage = () => {
     const newLocale = locale === 'pt' ? 'en' : 'pt';
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
-    window.location.href = newPath;
+    switchLanguage(newLocale);
   };
 
   const dockItems: DockItem[] = [
-    { key: 'home', icon: Home, href: `/${locale}`, type: 'link', label: t('dock.home') },
-    { key: 'football', icon: Trophy, href: `/${locale}/football`, type: 'link', label: t('dock.football') },
-    { key: 'motogp', icon: Bike, href: `/${locale}/motogp`, type: 'link', label: t('dock.motogp') },
-    { key: 'gaming', icon: Gamepad2, href: `/${locale}/gaming`, type: 'link', label: t('dock.gaming') },
-    { key: 'books', icon: BookOpen, href: `/${locale}/books`, type: 'link', label: t('dock.books') },
-    { key: 'movies', icon: Film, href: `/${locale}/movies`, type: 'link', label: t('dock.movies') },
-    { key: 'tvshows', icon: Tv, href: `/${locale}/tvshows`, type: 'link', label: t('dock.tvshows') },
-    { key: 'travel', icon: Plane, href: `/${locale}/travel`, type: 'link', label: t('dock.travel') },
+    { key: 'home', icon: Home, href: '/', type: 'link', label: t('dock.home') },
+    { key: 'football', icon: Trophy, href: '/football', type: 'link', label: t('dock.football') },
+    { key: 'motogp', icon: Bike, href: '/motogp', type: 'link', label: t('dock.motogp') },
+    { key: 'gaming', icon: Gamepad2, href: '/gaming', type: 'link', label: t('dock.gaming') },
+    { key: 'books', icon: BookOpen, href: '/books', type: 'link', label: t('dock.books') },
+    { key: 'movies', icon: Film, href: '/movies', type: 'link', label: t('dock.movies') },
+    { key: 'tvshows', icon: Tv, href: '/tvshows', type: 'link', label: t('dock.tvshows') },
+    { key: 'travel', icon: Plane, href: '/travel', type: 'link', label: t('dock.travel') },
     { key: 'theme', icon: theme === 'light' ? Moon : Sun, action: toggleTheme, type: 'action', label: t('dock.theme') },
     { key: 'language', icon: Globe, action: toggleLanguage, type: 'action', label: t('dock.language') }
   ];
 
   const isActive = (href?: string) => {
     if (!href) return false;
-    if (href === `/${locale}`) return pathname === `/${locale}`;
+    if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
   };
 
@@ -142,7 +140,7 @@ export function DockMobile({ className = '', forceHidden = false }: DockMobilePr
           fixed bottom-24 right-6 z-40
           flex flex-col gap-2
           p-3 rounded-2xl
-          bg-surface-secondary/95 backdrop-blur-lg
+          bg-bg-secondary/95 backdrop-blur-lg
           border border-border-primary
           shadow-xl
           transition-all duration-300 origin-bottom-right
@@ -161,7 +159,7 @@ export function DockMobile({ className = '', forceHidden = false }: DockMobilePr
                 transition-all duration-200
                 ${active
                   ? 'bg-accent-primary text-white'
-                  : 'bg-surface-primary text-text-secondary hover:bg-accent-primary/10 hover:text-accent-primary'
+                  : 'bg-bg-primary text-text-secondary hover:bg-accent-primary/10 hover:text-accent-primary'
                 }
                 cursor-pointer
                 min-w-[200px]

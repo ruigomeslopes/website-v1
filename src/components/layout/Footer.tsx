@@ -1,13 +1,14 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
 import { Linkedin, Twitter, Instagram, Facebook, Mail } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  columnsCount?: number;
+}
+
+export default function Footer({ columnsCount = 25 }: FooterProps) {
   const t = useTranslations();
-  const params = useParams();
-  const locale = params.locale as string;
 
   const socialLinks = [
     { name: 'LinkedIn', href: '#', icon: Linkedin },
@@ -17,28 +18,33 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-auto py-8 border-t border-border-primary/30">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Left: Name + Copyright */}
-          <div className="flex flex-col items-center md:items-start gap-1">
-            <p className="text-sm font-medium text-text-primary">
+    <footer className="mt-auto py-4 sm:py-6 border-t border-border-primary/30 bg-bg-primary">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        {/* 3×1 Grid: 3 sections with internal flex columns */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-4">
+
+          {/* Section 1: Name + Subtitle (2 lines) */}
+          <div className="flex flex-col gap-0.5 sm:gap-1 text-left">
+            <p className="text-sm sm:text-base font-bold text-text-primary">
               Rui Lopes
             </p>
-            <p className="text-xs text-text-tertiary">
-              © 2025 {t('footer.copyright').replace('© 2025 Rui Lopes. ', '')}
+            <p className="text-xs sm:text-sm text-text-secondary">
+              {t('footer.subtitle')}
             </p>
           </div>
 
-          {/* Center: Made with Love */}
-          <div className="flex items-center gap-2 text-sm text-text-secondary">
-            <span>{locale === 'pt' ? 'Feito com' : 'Made with'}</span>
-            <span className="text-red-500 animate-pulse">❤️</span>
-            <span>em Lisboa</span>
+          {/* Section 2: Motto + Columns Count (2 lines) */}
+          <div className="flex flex-col gap-0.5 sm:gap-1 text-center">
+            <p className="text-xs sm:text-sm font-medium text-text-primary italic leading-snug">
+              {t('footer.motto')}
+            </p>
+            <p className="text-xs text-text-tertiary">
+              {t('footer.columnsCount', { count: columnsCount })}
+            </p>
           </div>
 
-          {/* Right: Social Links + Email */}
-          <div className="flex items-center gap-3">
+          {/* Section 3: Social Icons (vertically centered) */}
+          <div className="flex items-center justify-end gap-1 sm:gap-2">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -47,10 +53,10 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 flex items-center justify-center rounded-full bg-surface-secondary text-text-secondary hover:bg-accent-primary hover:text-white transition-all duration-200"
+                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-bg-secondary text-text-secondary hover:bg-accent-primary hover:text-white transition-all duration-200 hover:scale-110"
                   aria-label={social.name}
                 >
-                  <Icon className="w-4 h-4" strokeWidth={2} />
+                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                 </a>
               );
             })}
@@ -58,10 +64,10 @@ export default function Footer() {
             {/* Email Icon */}
             <a
               href="mailto:rui@example.com"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-accent-primary text-white hover:bg-accent-secondary transition-all duration-200"
+              className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-accent-primary text-white hover:bg-accent-secondary transition-all duration-200 hover:scale-110"
               aria-label="Send email"
             >
-              <Mail className="w-4 h-4" strokeWidth={2} />
+              <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
             </a>
           </div>
         </div>

@@ -12,15 +12,15 @@ export default function ViewToggle({ currentView, onViewChange }: ViewToggleProp
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm font-medium text-[var(--text-secondary)] mr-2">
+      <span className="text-sm font-medium text-text-secondary mr-2">
         {t('viewMode')}:
       </span>
       <button
         onClick={() => onViewChange('grid')}
         className={`p-2 rounded-lg transition-all ${
           currentView === 'grid'
-            ? 'bg-[var(--accent-primary)] text-white'
-            : 'bg-[var(--background-secondary)] text-[var(--text-secondary)] hover:bg-[var(--background-tertiary)]'
+            ? 'bg-accent-primary text-white'
+            : 'bg-bg-secondary text-text-secondary hover:bg-bg-tertiary'
         }`}
         aria-label={t('gridView')}
         title={t('gridView')}
@@ -41,8 +41,8 @@ export default function ViewToggle({ currentView, onViewChange }: ViewToggleProp
         onClick={() => onViewChange('list')}
         className={`p-2 rounded-lg transition-all ${
           currentView === 'list'
-            ? 'bg-[var(--accent-primary)] text-white'
-            : 'bg-[var(--background-secondary)] text-[var(--text-secondary)] hover:bg-[var(--background-tertiary)]'
+            ? 'bg-accent-primary text-white'
+            : 'bg-bg-secondary text-text-secondary hover:bg-bg-tertiary'
         }`}
         aria-label={t('listView')}
         title={t('listView')}

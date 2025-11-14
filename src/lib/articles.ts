@@ -155,3 +155,33 @@ export function getAllArticlePaths(category: Category): { locale: 'pt' | 'en'; s
 
   return paths;
 }
+
+/**
+ * Get article statistics (total count and active categories) for a specific locale
+ * @param locale - Locale (pt or en)
+ * @returns Object with columnsCount and categoriesCount
+ */
+export async function getArticleStats(locale: 'pt' | 'en'): Promise<{
+  columnsCount: number;
+  categoriesCount: number;
+}> {
+  const categories: Category[] = ['football', 'motogp', 'gaming', 'movies', 'tvshows', 'books', 'travel'];
+
+  let totalColumns = 0;
+  let activeCategories = 0;
+
+  await Promise.all(
+    categories.map(async (category) => {
+      const slugs = getArticleSlugs(category, locale);
+      if (slugs.length > 0) {
+        totalColumns += slugs.length;
+        activeCategories += 1;
+      }
+    })
+  );
+
+  return {
+    columnsCount: totalColumns,
+    categoriesCount: activeCategories,
+  };
+}

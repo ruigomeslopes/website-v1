@@ -113,13 +113,13 @@ export default function CategoryPageClient({
           <Badge variant="primary" size="lg" className="mb-4">
             {categoryIcon} {t(`categories.${categoryKey}`)}
           </Badge>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
+          <h1 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-4">
             {t(`categories.${categoryKey}`)}
           </h1>
-          <p className="text-lg text-[var(--text-secondary)] mb-2">
+          <p className="text-lg text-text-secondary mb-2">
             {t(`categoryDescriptions.${categoryKey}`)}
           </p>
-          <p className="text-sm text-[var(--text-tertiary)]">
+          <p className="text-sm text-text-tertiary">
             {t('category.articleCount', { count: initialArticles.length })}
           </p>
         </div>
@@ -154,7 +154,7 @@ export default function CategoryPageClient({
         {/* Articles Display */}
         {visibleArticles.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-lg text-[var(--text-secondary)]">
+            <p className="text-lg text-text-secondary">
               {selectedTags.length > 0 || languageFilter !== 'all'
                 ? t('category.noArticlesFiltered')
                 : t('category.noArticles')}

@@ -14,14 +14,14 @@ export default function SortDropdown({ currentSort, onSortChange }: SortDropdown
 
   return (
     <div className="flex items-center gap-3">
-      <label htmlFor="sort" className="text-sm font-medium text-[var(--text-primary)]">
+      <label htmlFor="sort" className="text-sm font-medium text-text-primary">
         {t('sortBy')}:
       </label>
       <select
         id="sort"
         value={currentSort}
         onChange={(e) => onSortChange(e.target.value as SortOption)}
-        className="px-4 py-2 rounded-lg border border-[var(--border)] bg-[var(--bg-primary)] text-[var(--text-primary)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] transition-colors cursor-pointer"
+        className="px-4 py-2 rounded-lg border border-border-primary bg-bg-primary text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent-primary transition-colors cursor-pointer"
       >
         <option value="latest">{t('sortLatest')}</option>
         <option value="oldest">{t('sortOldest')}</option>

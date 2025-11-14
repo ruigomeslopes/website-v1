@@ -129,7 +129,7 @@ export default function TimelineHorizontal({ articles, locale }: TimelineHorizon
               className={`
                 absolute left-0 top-1/2 -translate-y-1/2 z-20
                 w-12 h-12 rounded-full
-                bg-surface-primary border-2 border-border-primary
+                bg-bg-primary border-2 border-border-primary
                 shadow-lg hover:shadow-xl
                 flex items-center justify-center
                 transition-all duration-300
@@ -148,7 +148,7 @@ export default function TimelineHorizontal({ articles, locale }: TimelineHorizon
               className={`
                 absolute right-0 top-1/2 -translate-y-1/2 z-20
                 w-12 h-12 rounded-full
-                bg-surface-primary border-2 border-border-primary
+                bg-bg-primary border-2 border-border-primary
                 shadow-lg hover:shadow-xl
                 flex items-center justify-center
                 transition-all duration-300

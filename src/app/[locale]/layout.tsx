@@ -5,6 +5,9 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import Footer from '@/components/layout/Footer'
+import { getArticleStats } from '@/lib/articles'
+import { SITE_CONFIG } from '@/lib/config'
+import { WebVitals } from '@/components/WebVitals'
 
 // Google Fonts
 const inter = Inter({
@@ -21,7 +24,7 @@ const merriweather = Merriweather({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ruilopes.github.io/rl-v1'),
+  metadataBase: new URL(SITE_CONFIG.baseUrl),
   title: 'Rui Lopes - Sports Journalist',
   description: 'Personal website and blog of Rui Lopes, aspiring sports journalist',
 }
@@ -48,12 +51,16 @@ export default async function LocaleLayout({
   // Get messages for the current locale - explicitly pass locale for static generation
   const messages = await getMessages({ locale })
 
+  // Get article stats for footer
+  const stats = await getArticleStats(locale as 'pt' | 'en')
+
   return (
     <html lang={locale} className={`${inter.variable} ${merriweather.variable}`}>
       <body className="flex flex-col min-h-screen" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
+          <WebVitals />
           {children}
-          <Footer />
+          <Footer columnsCount={stats.columnsCount} />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -20,13 +20,13 @@ export default function TagFilter({ tags, selectedTags, onTagToggle, onClearFilt
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-[var(--text-primary)]">
+        <h3 className="text-sm font-semibold text-text-primary">
           {t('filterByTag')}
         </h3>
         {selectedTags.length > 0 && (
           <button
             onClick={onClearFilters}
-            className="text-xs text-[var(--accent-primary)] hover:underline"
+            className="text-xs text-accent-primary hover:underline"
           >
             {t('clearFilters')}
           </button>
@@ -55,7 +55,7 @@ export default function TagFilter({ tags, selectedTags, onTagToggle, onClearFilt
       </div>
 
       {selectedTags.length > 0 && (
-        <p className="text-xs text-[var(--text-tertiary)]">
+        <p className="text-xs text-text-tertiary">
           {t('activeFilters', { count: selectedTags.length })}
         </p>
       )}

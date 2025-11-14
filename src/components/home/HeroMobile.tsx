@@ -4,9 +4,16 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { NavigableText } from './NavigableText';
 import { ScrollHint } from './ScrollHint';
+import { useScrollManager } from '@/hooks/useScrollManager';
 
 export function HeroMobile() {
   const t = useTranslations();
+  const { currentSection } = useScrollManager({
+    coverThreshold: 50,
+  });
+
+  // Only show scroll hints in cover section (before user starts scrolling)
+  const showScrollHint = currentSection === 'cover';
 
   return (
     <>
@@ -30,11 +37,11 @@ export function HeroMobile() {
         </div>
 
         {/* Scroll Hint */}
-        <ScrollHint position="center" />
+        <ScrollHint position="center" isVisible={showScrollHint} />
       </section>
 
       {/* Viewport 2: Navigable Phrases */}
-      <section className="relative min-h-screen w-full flex items-center justify-center bg-surface-primary px-6">
+      <section className="relative min-h-screen w-full flex items-center justify-center bg-bg-primary px-6">
         <div className="max-w-lg space-y-6">
           <NavigableText
             text={t('homepage.navigableText.phrase1')}
@@ -51,7 +58,7 @@ export function HeroMobile() {
         </div>
 
         {/* Scroll Hint */}
-        <ScrollHint position="center" />
+        <ScrollHint position="center" isVisible={showScrollHint} />
       </section>
 
       {/* Viewport 3: Photo */}
@@ -71,7 +78,7 @@ export function HeroMobile() {
         </div>
 
         {/* Scroll Hint */}
-        <ScrollHint position="center" />
+        <ScrollHint position="center" isVisible={showScrollHint} />
       </section>
     </>
   );

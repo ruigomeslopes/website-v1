@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Calendar, Clock, Trophy, Bike, Gamepad2, BookOpen, Film, Tv, Plane } from 'lucide-react';
@@ -57,7 +57,7 @@ export function TimelineArticle({
       <div
         className={`
           relative overflow-hidden rounded-2xl
-          bg-surface-primary border-2 border-border-primary
+          bg-bg-primary border-2 border-border-primary
           hover:border-accent-primary
           transition-all duration-300
           hover:shadow-xl hover:scale-[1.02]
@@ -67,7 +67,7 @@ export function TimelineArticle({
         `}
       >
         {/* Image Container */}
-        <div className="relative w-full aspect-[16/10] overflow-hidden bg-surface-secondary">
+        <div className="relative w-full aspect-[16/10] overflow-hidden bg-bg-secondary">
           <Image
             src={image}
             alt={title}
@@ -143,7 +143,7 @@ export function TimelineArticle({
             }
             w-4 h-4 rounded-full
             bg-accent-primary
-            border-4 border-bg-primary
+            border-4 border-border-primary
             group-hover:scale-125 group-hover:shadow-lg
             transition-all duration-300
             z-10

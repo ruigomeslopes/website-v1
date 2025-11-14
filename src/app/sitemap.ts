@@ -3,7 +3,7 @@ import { getArticleSlugs } from '@/lib/articles'
 import { locales } from '@/i18n'
 import type { Category } from '@/types/article'
 
-const baseUrl = 'https://ruilopes.github.io/rl-v1'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ruilopes.github.io/website-v1'
 const categories: Category[] = ['football', 'motogp', 'gaming', 'books', 'movies', 'tvshows', 'travel']
 
 // Force static export for GitHub Pages
@@ -47,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   })
 
   // Auxiliary pages (with locale alternates)
-  const auxiliaryPages = ['about', 'contact', 'latest']
+  const auxiliaryPages = ['about', 'contact']
   auxiliaryPages.forEach((page) => {
     locales.forEach((locale) => {
       sitemap.push({

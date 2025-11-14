@@ -6,9 +6,10 @@ import { useTranslations } from 'next-intl';
 interface ScrollHintProps {
   position?: 'left' | 'right' | 'center';
   onClick?: () => void;
+  isVisible?: boolean;
 }
 
-export function ScrollHint({ position = 'center', onClick }: ScrollHintProps) {
+export function ScrollHint({ position = 'center', onClick, isVisible = true }: ScrollHintProps) {
   const t = useTranslations();
 
   const positionClasses = {
@@ -27,7 +28,9 @@ export function ScrollHint({ position = 'center', onClick }: ScrollHintProps) {
   return (
     <button
       onClick={handleClick}
-      className={`absolute bottom-8 ${positionClasses[position]} flex flex-col items-center gap-2 text-text-secondary hover:text-accent-primary transition-colors duration-700 ease-in-out cursor-pointer group`}
+      className={`absolute bottom-8 ${positionClasses[position]} flex flex-col items-center gap-2 text-text-secondary hover:text-accent-primary transition-all duration-700 ease-in-out cursor-pointer group ${
+        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
       aria-label={t('homepage.scrollHint')}
     >
       <ChevronDown

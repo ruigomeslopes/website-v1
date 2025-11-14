@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getArticlesByCategory } from '@/lib/articles'
 import { locales } from '@/i18n'
 import type { Category } from '@/types/article'
+import { SITE_CONFIG } from '@/lib/config'
 
-const baseUrl = 'https://ruilopes.github.io/rl-v1'
+const baseUrl = SITE_CONFIG.baseUrl
 const categories: Category[] = ['football', 'motogp', 'gaming', 'books', 'movies', 'tvshows', 'travel']
 
 // Generate static params for both locales

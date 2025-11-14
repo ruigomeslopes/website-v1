@@ -74,9 +74,9 @@ export default function RelatedArticles({
   }
 
   return (
-    <section className="py-16 bg-[var(--bg-secondary)]">
+    <section className="py-16 bg-bg-secondary">
       <Container size="lg">
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-8 text-center">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-8 text-center">
           {t('relatedArticles')}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

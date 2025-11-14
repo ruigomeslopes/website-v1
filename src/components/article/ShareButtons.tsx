@@ -46,7 +46,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err);
+      // Silently fail - user will see the link wasn't copied
     }
   };
 
@@ -58,16 +58,15 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
           url,
         });
       } catch (err) {
-        // User cancelled or error occurred
-        console.error('Error sharing:', err);
+        // User cancelled sharing - no action needed
       }
     }
   };
 
   return (
-    <div className="border-t border-[var(--border-default)] pt-8 mt-8">
+    <div className="border-t border-border-primary pt-8 mt-8">
       <div className="flex flex-col items-center gap-4">
-        <h3 className="font-heading text-lg font-bold text-[var(--text-primary)]">
+        <h3 className="font-heading text-lg font-bold text-text-primary">
           {t('shareArticle')}
         </h3>
 
@@ -79,11 +78,11 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors border border-[var(--border-default)] hover:border-[var(--border-hover)]"
+              className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-secondary hover:bg-bg-tertiary transition-colors border border-border-primary hover:border-border-secondary"
               title={t('shareOn', { platform: link.name })}
             >
               <span className="text-xl">{link.icon}</span>
-              <span className="text-sm font-medium text-[var(--text-primary)] hidden sm:inline">
+              <span className="text-sm font-medium text-text-primary hidden sm:inline">
                 {link.name}
               </span>
             </a>
@@ -92,11 +91,11 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
           {/* Copy Link Button */}
           <button
             onClick={handleCopyLink}
-            className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors border border-[var(--border-default)] hover:border-[var(--border-hover)]"
+            className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-secondary hover:bg-bg-tertiary transition-colors border border-border-primary hover:border-border-secondary"
             title={t('copyLink')}
           >
             <span className="text-xl">{copied ? '✅' : '🔗'}</span>
-            <span className="text-sm font-medium text-[var(--text-primary)] hidden sm:inline">
+            <span className="text-sm font-medium text-text-primary hidden sm:inline">
               {copied ? t('linkCopied') : t('copyLink')}
             </span>
           </button>
@@ -105,7 +104,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
           {typeof window !== 'undefined' && typeof navigator !== 'undefined' && 'share' in navigator && (
             <button
               onClick={handleNativeShare}
-              className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white transition-colors border border-transparent sm:hidden"
+              className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-accent-primary hover:bg-accent-hover text-white transition-colors border border-transparent sm:hidden"
               title={t('share')}
             >
               <span className="text-xl">📤</span>

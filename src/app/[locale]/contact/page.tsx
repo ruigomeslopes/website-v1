@@ -71,18 +71,18 @@ function ContactPageContent() {
           <Badge variant="primary" size="lg" className="mb-4">
             ✉️ {t('contact.title')}
           </Badge>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
+          <h1 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-4">
             {t('contact.title')}
           </h1>
-          <p className="text-lg text-[var(--text-secondary)] mb-2">{t('contact.subtitle')}</p>
-          <p className="text-[var(--text-tertiary)]">{t('contact.description')}</p>
+          <p className="text-lg text-text-secondary mb-2">{t('contact.subtitle')}</p>
+          <p className="text-text-tertiary">{t('contact.description')}</p>
         </div>
 
         {/* Email Section */}
         <div className="mb-12">
           <Card>
             <div className="text-center">
-              <h2 className="font-heading text-xl font-bold text-[var(--text-primary)] mb-4">
+              <h2 className="font-heading text-xl font-bold text-text-primary mb-4">
                 {t('contact.email')}
               </h2>
               <a
@@ -94,7 +94,7 @@ function ContactPageContent() {
                   {t('contact.emailLabel')}
                 </Button>
               </a>
-              <p className="mt-4 text-sm text-[var(--text-tertiary)]">rui@ruilopes.com</p>
+              <p className="mt-4 text-sm text-text-tertiary">rui@ruilopes.com</p>
             </div>
           </Card>
         </div>
@@ -102,7 +102,7 @@ function ContactPageContent() {
         {/* Social Media Section */}
         <div className="mb-12">
           <Card>
-            <h3 className="font-heading text-xl font-bold text-[var(--text-primary)] mb-6 text-center">
+            <h3 className="font-heading text-xl font-bold text-text-primary mb-6 text-center">
               {t('contact.followMe')}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -112,10 +112,10 @@ function ContactPageContent() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors border border-[var(--border-default)] hover:border-[var(--border-hover)]"
+                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-bg-secondary hover:bg-bg-tertiary transition-colors border border-border-primary hover:border-accent-primary"
                 >
                   <span className="text-3xl">{link.icon}</span>
-                  <span className="text-sm font-medium text-[var(--text-primary)]">
+                  <span className="text-sm font-medium text-text-primary">
                     {link.name}
                   </span>
                 </a>
@@ -126,13 +126,13 @@ function ContactPageContent() {
 
         {/* Future Form Placeholder */}
         <div className="text-center">
-          <Card className="bg-[var(--bg-secondary)] border-dashed">
+          <Card className="bg-bg-secondary border-dashed">
             <div className="py-8">
               <span className="text-4xl mb-4 block">📝</span>
-              <h3 className="font-heading text-lg font-bold text-[var(--text-primary)] mb-2">
+              <h3 className="font-heading text-lg font-bold text-text-primary mb-2">
                 Contact Form Coming Soon
               </h3>
-              <p className="text-sm text-[var(--text-secondary)]">
+              <p className="text-sm text-text-secondary">
                 {t('contact.description')}
               </p>
             </div>

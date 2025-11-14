@@ -2,7 +2,6 @@
   "navigation": {
     "home": "Home",
     "categories": "Categories",
-    "latest": "Latest",
     "about": "About",
     "contact": "Contact"
   },
@@ -40,7 +39,11 @@
     "switchLanguage": "Switch to Portuguese"
   },
   "footer": {
-    "copyright": "© 2025 Rui Lopes. All rights reserved.",
+    "subtitle": "Journalist & Storyteller",
+    "motto": "Every story deserves to be told",
+    "columnsCount": "{count} columns",
+    "categoriesCount": "{count} categories",
+    "copyright": "© 2025",
     "followMe": "Follow me"
   },
   "theme": {
@@ -51,6 +54,8 @@
   "social": {
     "linkedin": "LinkedIn",
     "twitter": "Twitter/X",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
     "cv": "Curriculum Vitae",
     "email": "Email",
     "socialLinks": "Social media links"
@@ -150,14 +155,6 @@
     "tripDuration": "Trip Duration",
     "budget": "Budget"
   },
-  "latest": {
-    "title": "Latest Articles",
-    "description": "All recent articles from all categories",
-    "allCategories": "All Categories",
-    "filterByCategory": "Filter by category",
-    "noArticles": "No articles available.",
-    "noArticlesFiltered": "No articles match the selected filters."
-  },
   "about": {
     "title": "About Me",
     "subtitle": "Sports Journalist & Content Creator",
@@ -242,5 +239,28 @@
     "i18nSupport": "Bilingual support (PT/EN)",
     "languageToggle": "Language toggle",
     "routingStructure": "Routing structure with [locale]"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "heading": "404 - Page Not Found",
+      "message": "Sorry, the page you're looking for doesn't exist or has been moved.",
+      "suggestion": "Try checking the URL or navigate back to the homepage.",
+      "backHome": "Back to Home",
+      "browseCategories": "Browse Categories"
+    },
+    "500": {
+      "title": "Something Went Wrong",
+      "heading": "Oops! Something Went Wrong",
+      "message": "An unexpected error occurred. We're working to fix it.",
+      "suggestion": "Try refreshing the page or come back later.",
+      "refresh": "Refresh Page",
+      "backHome": "Back to Home"
+    },
+    "general": {
+      "tryAgain": "Try Again",
+      "contactSupport": "Contact Support",
+      "errorCode": "Error Code"
+    }
   }
 }

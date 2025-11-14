@@ -1,12 +1,17 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 export default function RootPage() {
-  const router = useRouter()
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+
     // Get browser language preference
     const browserLang = navigator.language.toLowerCase()
 
@@ -27,9 +32,9 @@ export default function RootPage() {
     // Store the preference
     localStorage.setItem('preferredLocale', locale)
 
-    // Redirect to the appropriate locale
-    router.replace(`/${locale}`)
-  }, [router])
+    // Redirect to the appropriate locale using window.location
+    window.location.href = `/${locale}`
+  }, [mounted])
 
   // Show a minimal loading state while redirecting
   // Note: This page provides its own HTML structure since it's not under [locale]

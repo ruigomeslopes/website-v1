@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Link } from '@/i18n/navigation';
+import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
@@ -73,10 +73,10 @@ function AboutPageContent({ locale }: { locale: string }) {
           <Badge variant="primary" size="lg" className="mb-4">
             👤 {t('about.title')}
           </Badge>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
+          <h1 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-4">
             {t('about.title')}
           </h1>
-          <p className="text-lg text-[var(--text-secondary)]">{t('about.subtitle')}</p>
+          <p className="text-lg text-text-secondary">{t('about.subtitle')}</p>
         </div>
 
         {/* Avatar and Bio */}
@@ -85,7 +85,7 @@ function AboutPageContent({ locale }: { locale: string }) {
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
               {/* Avatar */}
               <div className="flex-shrink-0">
-                <div className="relative w-48 h-48 rounded-full overflow-hidden bg-[var(--bg-tertiary)] border-4 border-[var(--border-default)]">
+                <div className="relative w-48 h-48 rounded-full overflow-hidden bg-bg-tertiary border-4 border-border-primary">
                   <Image
                     src="/images/avatar.jpg"
                     alt="Rui Lopes"
@@ -98,13 +98,13 @@ function AboutPageContent({ locale }: { locale: string }) {
 
               {/* Bio Text */}
               <div className="flex-1 text-center md:text-left">
-                <h2 className="font-heading text-2xl font-bold text-[var(--text-primary)] mb-4">
+                <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
                   Rui Lopes
                 </h2>
-                <p className="text-[var(--text-secondary)] mb-4 leading-relaxed">
+                <p className="text-text-secondary mb-4 leading-relaxed">
                   {t('about.bio')}
                 </p>
-                <p className="text-[var(--text-secondary)] leading-relaxed">
+                <p className="text-text-secondary leading-relaxed">
                   {t('about.bioExtended')}
                 </p>
               </div>
@@ -115,14 +115,14 @@ function AboutPageContent({ locale }: { locale: string }) {
         {/* Skills Section */}
         <div className="mb-12">
           <Card>
-            <h3 className="font-heading text-xl font-bold text-[var(--text-primary)] mb-6">
+            <h3 className="font-heading text-xl font-bold text-text-primary mb-6">
               {t('about.skills')}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-start gap-3">
                 <span className="text-2xl">✍️</span>
                 <div>
-                  <p className="font-medium text-[var(--text-primary)]">
+                  <p className="font-medium text-text-primary">
                     {t('about.skillsList.writing')}
                   </p>
                 </div>
@@ -130,7 +130,7 @@ function AboutPageContent({ locale }: { locale: string }) {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">⚽</span>
                 <div>
-                  <p className="font-medium text-[var(--text-primary)]">
+                  <p className="font-medium text-text-primary">
                     {t('about.skillsList.analysis')}
                   </p>
                 </div>
@@ -138,7 +138,7 @@ function AboutPageContent({ locale }: { locale: string }) {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">🔍</span>
                 <div>
-                  <p className="font-medium text-[var(--text-primary)]">
+                  <p className="font-medium text-text-primary">
                     {t('about.skillsList.research')}
                   </p>
                 </div>
@@ -146,7 +146,7 @@ function AboutPageContent({ locale }: { locale: string }) {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">🌍</span>
                 <div>
-                  <p className="font-medium text-[var(--text-primary)]">
+                  <p className="font-medium text-text-primary">
                     {t('about.skillsList.bilingual')}
                   </p>
                 </div>
@@ -158,7 +158,7 @@ function AboutPageContent({ locale }: { locale: string }) {
         {/* Social Links */}
         <div className="mb-12">
           <Card>
-            <h3 className="font-heading text-xl font-bold text-[var(--text-primary)] mb-6 text-center">
+            <h3 className="font-heading text-xl font-bold text-text-primary mb-6 text-center">
               {t('footer.followMe')}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -168,10 +168,10 @@ function AboutPageContent({ locale }: { locale: string }) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors border border-[var(--border-default)] hover:border-[var(--border-hover)]"
+                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-bg-secondary hover:bg-bg-tertiary transition-colors border border-border-primary hover:border-accent-primary"
                 >
                   <span className="text-3xl">{link.icon}</span>
-                  <span className="text-sm font-medium text-[var(--text-primary)]">
+                  <span className="text-sm font-medium text-text-primary">
                     {link.name}
                   </span>
                 </a>
@@ -180,9 +180,9 @@ function AboutPageContent({ locale }: { locale: string }) {
           </Card>
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Button - Link to homepage */}
         <div className="text-center">
-          <Link href="/latest">
+          <Link href="/">
             <Button size="lg" variant="primary">
               {t('about.ctaButton')}
             </Button>

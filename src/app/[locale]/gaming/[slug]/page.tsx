@@ -10,6 +10,7 @@ import ShareButtons from '@/components/article/ShareButtons';
 import RelatedArticles from '@/components/article/RelatedArticles';
 import StructuredData from '@/components/StructuredData';
 import { Article } from '@/types/article';
+import { SITE_CONFIG, truncateDescription } from '@/lib/config';
 
 interface PageProps {
   params: Promise<{
@@ -34,29 +35,37 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   try {
     const article = await getArticle('gaming', slug, locale);
     const { frontmatter } = article;
+    const truncatedDescription = truncateDescription(frontmatter.excerpt);
 
     return {
       title: frontmatter.title,
-      description: frontmatter.excerpt,
-      authors: [{ name: 'Rui Lopes' }],
+      description: truncatedDescription,
+      authors: [{ name: SITE_CONFIG.author.name }],
       keywords: frontmatter.tags,
+      alternates: {
+        canonical: `/${locale}/gaming/${slug}`,
+        languages: {
+          'pt': `/pt/gaming/${slug}`,
+          'en': `/en/gaming/${slug}`,
+        },
+      },
       openGraph: {
         title: frontmatter.title,
-        description: frontmatter.excerpt,
+        description: truncatedDescription,
         images: [frontmatter.image],
         type: 'article',
         locale: locale === 'pt' ? 'pt_PT' : 'en_US',
         publishedTime: frontmatter.date,
         modifiedTime: frontmatter.date,
-        authors: ['Rui Lopes'],
+        authors: [SITE_CONFIG.author.name],
         tags: frontmatter.tags,
       },
       twitter: {
         card: 'summary_large_image',
         title: frontmatter.title,
-        description: frontmatter.excerpt,
+        description: truncatedDescription,
         images: [frontmatter.image],
-        creator: '@ruilopes',
+        creator: SITE_CONFIG.author.twitter,
       },
     };
   } catch (error) {
@@ -92,8 +101,7 @@ export default async function GamingArticlePage({ params }: PageProps) {
   }));
 
   // Construct full article URL for sharing
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ruilopes.com';
-  const articleUrl = `${baseUrl}/${locale}/gaming/${slug}`;
+  const articleUrl = `${SITE_CONFIG.baseUrl}/${locale}/gaming/${slug}`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -105,10 +113,10 @@ export default async function GamingArticlePage({ params }: PageProps) {
           image: frontmatter.image,
           datePublished: frontmatter.date,
           dateModified: frontmatter.date,
-          author: { name: 'Rui Lopes' },
+          author: { name: SITE_CONFIG.author.name },
           publisher: {
-            name: 'Rui Lopes',
-            logo: 'https://ruilopes.github.io/rl-v1/avatar.jpg',
+            name: SITE_CONFIG.siteName,
+            logo: `${SITE_CONFIG.baseUrl}/avatar.jpg`,
           },
           url: articleUrl,
           keywords: frontmatter.tags,
@@ -116,7 +124,7 @@ export default async function GamingArticlePage({ params }: PageProps) {
       />
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
-        <Breadcrumbs category="gaming" articleTitle={frontmatter.title} locale={locale} />
+        <Breadcrumbs category="gaming" articleTitle={frontmatter.title} locale={locale} articleSlug={slug} />
 
         {/* Article Hero */}
         <ArticleHero frontmatter={frontmatter} readingTime={readingTime} locale={locale} />

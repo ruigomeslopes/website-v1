@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Article } from '@/types/article';
-import { formatDate, calculateReadingTime } from '@/lib/utils';
+import { formatDate, getCategoryFromFrontmatter } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 
@@ -16,18 +16,8 @@ export default function ArticleCard({ article, locale }: ArticleCardProps) {
   const { slug, frontmatter, content, readingTime } = article;
   const { title, excerpt, image: coverImage, date: publishDate, tags } = frontmatter;
 
-  // Determine category from frontmatter locale and slug structure
-  // For now, we'll need to pass category explicitly or extract from path
-  // Let's extract from the article structure
-  let category = 'football'; // default
-  if ('teams' in frontmatter) category = 'football';
-  else if ('gpName' in frontmatter) category = 'motogp';
-  else if ('platform' in frontmatter && 'developer' in frontmatter) category = 'gaming';
-  else if ('director' in frontmatter) category = 'movies';
-  else if ('creator' in frontmatter) category = 'tvshows';
-  else if ('author' in frontmatter) category = 'books';
-  else if ('destination' in frontmatter) category = 'travel';
-
+  // Determine category from frontmatter structure
+  const category = getCategoryFromFrontmatter(frontmatter);
   const articleUrl = `/${locale}/${category}/${slug}`;
 
   return (
@@ -35,7 +25,7 @@ export default function ArticleCard({ article, locale }: ArticleCardProps) {
       <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
         {/* Cover Image */}
         {coverImage && (
-          <div className="relative aspect-video w-full overflow-hidden bg-gray-200">
+          <div className="relative aspect-video w-full overflow-hidden bg-bg-secondary">
             <Image
               src={coverImage}
               alt={title}
@@ -55,13 +45,13 @@ export default function ArticleCard({ article, locale }: ArticleCardProps) {
         {/* Content */}
         <div className="p-6 flex flex-col gap-3">
           {/* Title */}
-          <h3 className="text-xl font-heading font-bold text-[var(--text-primary)] line-clamp-2 group-hover:text-[var(--accent-primary)] transition-colors">
+          <h3 className="text-xl font-heading font-bold text-text-primary line-clamp-2 group-hover:text-accent-primary transition-colors">
             {title}
           </h3>
 
           {/* Excerpt */}
           {excerpt && (
-            <p className="text-sm text-[var(--text-secondary)] line-clamp-3">
+            <p className="text-sm text-text-secondary line-clamp-3">
               {excerpt}
             </p>
           )}
@@ -83,7 +73,7 @@ export default function ArticleCard({ article, locale }: ArticleCardProps) {
           )}
 
           {/* Metadata */}
-          <div className="flex items-center gap-3 text-xs text-[var(--text-tertiary)] pt-2 border-t border-[var(--border)]">
+          <div className="flex items-center gap-3 text-xs text-text-tertiary pt-2 border-t border-border-primary">
             <time dateTime={publishDate}>
               {formatDate(publishDate, locale as 'pt' | 'en')}
             </time>

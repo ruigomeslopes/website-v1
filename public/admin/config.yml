@@ -7,7 +7,7 @@ local_backend: true
 # Backend configuration
 backend:
   name: github
-  repo: ruilopes/rl-v1 # Replace with your actual GitHub username/repo
+  repo: ruilopes/website-v1
   branch: main
   # Use implicit authentication for local development
   # For production, configure GitHub OAuth via GitHub repository settings
@@ -17,7 +17,7 @@ media_folder: "public/uploads" # Where files will be stored
 public_folder: "/uploads" # URL path to access files
 
 # Site URL (update when deployed)
-site_url: https://ruilopes.github.io/rl-v1
+site_url: https://ruilopes.github.io/website-v1
 # logo_url: /images/logo.png # Optional: Add your logo
 
 # Locale configuration

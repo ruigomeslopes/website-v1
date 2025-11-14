@@ -14,7 +14,7 @@ export default function CoverMobile({ showDock = true }: CoverMobileProps) {
 
   return (
     <section
-      className="relative h-screen w-full flex items-center justify-center bg-[var(--bg-color)] overflow-hidden"
+      className="relative h-screen w-full flex items-center justify-center bg-bg-bg-primary overflow-hidden"
       aria-label="Cover"
     >
       {/* Main Grid: 70/30 split */}
@@ -22,12 +22,12 @@ export default function CoverMobile({ showDock = true }: CoverMobileProps) {
         {/* Left Column: Name + Subtitle + Social Links */}
         <div className="flex flex-col justify-center items-start space-y-6 pr-4">
           {/* Name */}
-          <h1 className="text-5xl sm:text-6xl font-bold text-[var(--text-primary)] leading-tight">
+          <h1 className="text-5xl sm:text-6xl font-bold text-text-primary leading-tight">
             Rui Lopes
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-[var(--text-secondary)] font-medium max-w-md">
+          <p className="text-lg sm:text-xl text-text-secondary font-medium max-w-md">
             {t('header.tagline')}
           </p>
 

@@ -45,9 +45,31 @@
   --text-3xl: clamp(1.875rem, 1.6rem + 1vw, 2.25rem);
   --text-4xl: clamp(2.25rem, 1.9rem + 1.5vw, 3rem);
 
-  /* Spacing */
+  /* Display Typography (5xl-9xl) - For hero sections and large headings */
+  --text-5xl: clamp(3rem, 2.5rem + 2vw, 4rem);
+  --text-6xl: clamp(3.75rem, 3rem + 3vw, 5rem);
+  --text-7xl: clamp(4.5rem, 3.5rem + 4vw, 6rem);
+  --text-8xl: clamp(6rem, 4.5rem + 6vw, 8rem);
+  --text-9xl: clamp(8rem, 6rem + 8vw, 10rem);
+
+  /* Spacing Scale */
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 0.75rem;   /* 12px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
   --header-height: 4rem;
   --container-max-width: 1280px;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;   /* Fully rounded */
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
@@ -272,70 +294,41 @@ a:hover {
   animation: bounce 1s infinite;
 }
 
+/* Shimmer Animation for Skeletons */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Ripple Animation for Buttons */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Scale Pulse Animation */
+@keyframes scale-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
 /* Smooth Scroll */
 html {
   scroll-behavior: smooth;
-}
-
-/* Surface Colors for Dock */
-.bg-surface-primary {
-  background-color: var(--bg-primary);
-}
-
-.bg-surface-secondary {
-  background-color: var(--bg-secondary);
-}
-
-.text-text-primary {
-  color: var(--text-primary);
-}
-
-.text-text-secondary {
-  color: var(--text-secondary);
-}
-
-.text-text-tertiary {
-  color: var(--text-tertiary);
-}
-
-.text-accent-primary {
-  color: var(--accent-primary);
-}
-
-.text-accent-secondary {
-  color: var(--accent-secondary);
-}
-
-.bg-accent-primary {
-  background-color: var(--accent-primary);
-}
-
-.bg-accent-secondary {
-  background-color: var(--accent-secondary);
-}
-
-.border-border-primary {
-  border-color: var(--border-primary);
-}
-
-.border-border-secondary {
-  border-color: var(--border-secondary);
-}
-
-.border-bg-primary {
-  border-color: var(--bg-primary);
-}
-
-.border-bg-secondary {
-  border-color: var(--bg-secondary);
-}
-
-.bg-surface-tertiary {
-  background-color: var(--bg-tertiary);
-}
-
-.hover\:bg-surface-tertiary:hover {
-  background-color: var(--bg-tertiary);
 }
 
 /* ============================================
@@ -405,4 +398,151 @@ html {
 
 .timeline-scroll::-webkit-scrollbar {
   display: none;  /* Chrome, Safari, Opera */
+}
+
+/* ============================================
+   UTILITY CLASSES - Enhanced Visual Effects
+   ============================================ */
+
+/* Glass-morphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+[data-theme='dark'] .glass {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass-morphism Strong */
+.glass-strong {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='dark'] .glass-strong {
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Hover Glow Effect */
+.hover-glow {
+  transition: box-shadow var(--transition-base);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme='dark'] .hover-glow:hover {
+  box-shadow: 0 0 25px rgba(96, 165, 250, 0.4);
+}
+
+/* Gradient Border */
+.gradient-border {
+  position: relative;
+  background: var(--bg-primary);
+  background-clip: padding-box;
+  border: solid 2px transparent;
+  border-radius: var(--radius-lg);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* Shimmer on Hover */
+.shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform var(--transition-slow);
+}
+
+.shimmer-hover:hover::after {
+  transform: translateX(0%) translateY(0%) rotate(45deg);
+}
+
+/* Scale on Hover */
+.hover-scale {
+  transition: transform var(--transition-base);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Lift on Hover */
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: var(--transition-base);
+  transition-timing-function: ease-in-out;
+}
+
+/* Prevent transition on page load */
+.no-transition {
+  transition: none !important;
+}
+
+/* Focus visible styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-primary);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
 }

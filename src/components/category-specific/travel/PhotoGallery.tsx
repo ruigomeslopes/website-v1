@@ -77,7 +77,7 @@ export default function PhotoGallery({ images, alt = 'Gallery image' }: PhotoGal
           {/* Close button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 focus:outline-none"
+            className="absolute top-4 right-4 text-white text-4xl hover:text-white/70 focus:outline-none transition-colors"
             aria-label="Close lightbox"
           >
             &times;
@@ -90,7 +90,7 @@ export default function PhotoGallery({ images, alt = 'Gallery image' }: PhotoGal
                 e.stopPropagation();
                 prevImage();
               }}
-              className="absolute left-4 text-white text-4xl hover:text-gray-300 focus:outline-none"
+              className="absolute left-4 text-white text-4xl hover:text-white/70 focus:outline-none transition-colors"
               aria-label="Previous image"
             >
               &#8249;
@@ -119,7 +119,7 @@ export default function PhotoGallery({ images, alt = 'Gallery image' }: PhotoGal
                 e.stopPropagation();
                 nextImage();
               }}
-              className="absolute right-4 text-white text-4xl hover:text-gray-300 focus:outline-none"
+              className="absolute right-4 text-white text-4xl hover:text-white/70 focus:outline-none transition-colors"
               aria-label="Next image"
             >
               &#8250;

@@ -22,7 +22,7 @@ export default function LanguageFilter({
 
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm font-medium text-[var(--text-secondary)]">
+      <label className="text-sm font-medium text-text-secondary">
         {t('filterByLanguage')}
       </label>
       <div className="flex flex-wrap gap-2">

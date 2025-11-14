@@ -37,8 +37,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Create environment file
+        run: |
+          echo "NEXT_PUBLIC_SITE_URL=https://ruilopes.github.io/website-v1" > .env.production
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Lint
+        run: npm run lint
+
       - name: Build with Next.js
         run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://ruilopes.github.io/website-v1
+
+      - name: Add .nojekyll file
+        run: touch out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

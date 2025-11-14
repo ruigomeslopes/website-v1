@@ -2,7 +2,6 @@
   "navigation": {
     "home": "Início",
     "categories": "Categorias",
-    "latest": "Últimos",
     "about": "Sobre",
     "contact": "Contacto"
   },
@@ -40,7 +39,11 @@
     "switchLanguage": "Mudar para Inglês"
   },
   "footer": {
-    "copyright": "© 2025 Rui Lopes. Todos os direitos reservados.",
+    "subtitle": "Jornalista & Storyteller",
+    "motto": "Cada história merece ser contada",
+    "columnsCount": "{count} colunas",
+    "categoriesCount": "{count} categorias",
+    "copyright": "© 2025",
     "followMe": "Segue-me"
   },
   "theme": {
@@ -51,6 +54,8 @@
   "social": {
     "linkedin": "LinkedIn",
     "twitter": "Twitter/X",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
     "cv": "Curriculum Vitae",
     "email": "Email",
     "socialLinks": "Links de redes sociais"
@@ -150,14 +155,6 @@
     "tripDuration": "Duração da Viagem",
     "budget": "Orçamento"
   },
-  "latest": {
-    "title": "Últimos Artigos",
-    "description": "Todos os artigos recentes de todas as categorias",
-    "allCategories": "Todas as Categorias",
-    "filterByCategory": "Filtrar por categoria",
-    "noArticles": "Nenhum artigo disponível.",
-    "noArticlesFiltered": "Nenhum artigo corresponde aos filtros selecionados."
-  },
   "about": {
     "title": "Sobre Mim",
     "subtitle": "Jornalista Desportivo & Criador de Conteúdo",
@@ -242,5 +239,28 @@
     "i18nSupport": "Suporte bilíngue (PT/EN)",
     "languageToggle": "Toggle de idioma",
     "routingStructure": "Estrutura de routing com [locale]"
+  },
+  "errors": {
+    "404": {
+      "title": "Página Não Encontrada",
+      "heading": "404 - Página Não Encontrada",
+      "message": "Desculpe, a página que procura não existe ou foi movida.",
+      "suggestion": "Tente verificar o URL ou voltar à página inicial.",
+      "backHome": "Voltar ao Início",
+      "browseCategories": "Explorar Categorias"
+    },
+    "500": {
+      "title": "Algo Correu Mal",
+      "heading": "Ops! Algo Correu Mal",
+      "message": "Ocorreu um erro inesperado. Estamos a trabalhar para o resolver.",
+      "suggestion": "Tente atualizar a página ou volte mais tarde.",
+      "refresh": "Atualizar Página",
+      "backHome": "Voltar ao Início"
+    },
+    "general": {
+      "tryAgain": "Tentar Novamente",
+      "contactSupport": "Contactar Suporte",
+      "errorCode": "Código de Erro"
+    }
   }
 }

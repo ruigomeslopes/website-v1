@@ -16,10 +16,12 @@ module.exports = {
         'bg-secondary': 'var(--bg-secondary)',
         'bg-tertiary': 'var(--bg-tertiary)',
 
-        // Text colors
-        'text-primary': 'var(--text-primary)',
-        'text-secondary': 'var(--text-secondary)',
-        'text-tertiary': 'var(--text-tertiary)',
+        // Text colors (nested object for text-text-* utilities)
+        text: {
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          tertiary: 'var(--text-tertiary)',
+        },
 
         // Accent colors
         'accent-primary': 'var(--accent-primary)',
@@ -35,22 +37,6 @@ module.exports = {
         warning: 'var(--warning)',
         error: 'var(--error)',
         info: 'var(--info)',
-
-        // Aliases for common usage patterns
-        surface: {
-          primary: 'var(--bg-primary)',
-          secondary: 'var(--bg-secondary)',
-          tertiary: 'var(--bg-tertiary)',
-        },
-        accent: {
-          primary: 'var(--accent-primary)',
-          secondary: 'var(--accent-secondary)',
-          hover: 'var(--accent-hover)',
-        },
-        border: {
-          primary: 'var(--border-primary)',
-          secondary: 'var(--border-secondary)',
-        },
       },
       // Font families from Next.js font loader
       fontFamily: {
@@ -67,6 +53,12 @@ module.exports = {
         '2xl': 'var(--text-2xl)',
         '3xl': 'var(--text-3xl)',
         '4xl': 'var(--text-4xl)',
+        // Display Typography (5xl-9xl)
+        '5xl': 'var(--text-5xl)',
+        '6xl': 'var(--text-6xl)',
+        '7xl': 'var(--text-7xl)',
+        '8xl': 'var(--text-8xl)',
+        '9xl': 'var(--text-9xl)',
       },
       // Box shadows
       boxShadow: {
@@ -85,9 +77,26 @@ module.exports = {
       maxWidth: {
         container: 'var(--container-max-width)',
       },
-      // Spacing for header
+      // Spacing scale
       spacing: {
-        header: 'var(--header-height)',
+        'xs': 'var(--spacing-xs)',
+        'sm': 'var(--spacing-sm)',
+        'md': 'var(--spacing-md)',
+        'lg': 'var(--spacing-lg)',
+        'xl': 'var(--spacing-xl)',
+        '2xl': 'var(--spacing-2xl)',
+        '3xl': 'var(--spacing-3xl)',
+        'header': 'var(--header-height)',
+      },
+      // Border radius
+      borderRadius: {
+        'sm': 'var(--radius-sm)',
+        'DEFAULT': 'var(--radius-md)',
+        'md': 'var(--radius-md)',
+        'lg': 'var(--radius-lg)',
+        'xl': 'var(--radius-xl)',
+        '2xl': 'var(--radius-2xl)',
+        'full': 'var(--radius-full)',
       },
       // Custom animations
       keyframes: {

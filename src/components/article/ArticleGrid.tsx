@@ -11,7 +11,7 @@ export default function ArticleGrid({ articles, locale, emptyMessage }: ArticleG
   if (articles.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="text-lg text-[var(--text-secondary)]">
+        <p className="text-lg text-text-secondary">
           {emptyMessage || 'No articles found.'}
         </p>
       </div>

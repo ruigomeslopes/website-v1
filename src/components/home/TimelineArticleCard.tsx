@@ -44,7 +44,7 @@ export default function TimelineArticleCard({ article, locale }: TimelineArticle
           w-80 h-[30rem]
           rounded-2xl
           border-2 border-border-primary
-          bg-surface-primary
+          bg-bg-primary
           overflow-hidden
           transition-all duration-400 ease-out
           ${isHovered ? 'scale-110 shadow-2xl border-accent-primary' : 'scale-100 shadow-lg'}
@@ -168,10 +168,7 @@ export default function TimelineArticleCard({ article, locale }: TimelineArticle
         {/* Hover Border Glow Effect */}
         {isHovered && (
           <div
-            className="absolute inset-0 rounded-2xl pointer-events-none"
-            style={{
-              boxShadow: `0 0 30px rgba(var(--accent-primary), 0.3)`,
-            }}
+            className="absolute inset-0 rounded-2xl pointer-events-none shadow-[0_0_30px_rgba(59,130,246,0.3)] dark:shadow-[0_0_30px_rgba(96,165,250,0.3)]"
           />
         )}
       </article>

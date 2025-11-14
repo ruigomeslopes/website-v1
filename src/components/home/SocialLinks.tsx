@@ -18,26 +18,26 @@ export default function SocialLinks({
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      href: 'https://linkedin.com/in/rui-lopes', // TODO: Update with actual URL
+      href: 'https://linkedin.com/in/rui-lopes-journalist',
       label: t('linkedin')
     },
     {
       name: 'Twitter',
       icon: Twitter,
-      href: 'https://twitter.com/ruilopes', // TODO: Update with actual URL
+      href: 'https://twitter.com/ruilopes_sports',
       label: t('twitter')
     },
     {
       name: 'CV',
       icon: FileText,
-      href: '/cv-rui-lopes.pdf', // TODO: Add CV to public folder
+      href: '/cv-rui-lopes.pdf',
       label: t('cv'),
       download: true
     },
     {
       name: 'Email',
       icon: Mail,
-      href: 'mailto:rui.lopes@example.com', // TODO: Update with actual email
+      href: 'mailto:rui.lopes@sports-journalist.com',
       label: t('email')
     }
   ]
@@ -78,19 +78,19 @@ export default function SocialLinks({
               ${sizeClasses[size]}
               flex items-center justify-center
               rounded-full
-              border-2 border-[var(--border-color)]
-              bg-[var(--card-bg)]
-              text-[var(--text-secondary)]
+              border-2 border-border-primary
+              bg-bg-secondary
+              text-text-secondary
               transition-all duration-300
-              hover:border-[var(--accent-color)]
-              hover:text-[var(--accent-color)]
+              hover:border-accent-primary
+              hover:text-accent-primary
               hover:scale-110
               hover:shadow-lg
               focus:outline-none
               focus:ring-2
-              focus:ring-[var(--accent-color)]
+              focus:ring-accent-primary
               focus:ring-offset-2
-              focus:ring-offset-[var(--bg-color)]
+              focus:ring-offset-bg-primary
             `}
             aria-label={link.label}
             title={link.label}

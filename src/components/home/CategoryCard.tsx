@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 
 interface CategoryCardProps {
@@ -15,7 +15,7 @@ export default function CategoryCard({ emoji, category, href }: CategoryCardProp
   return (
     <Link
       href={href}
-      className="group relative bg-surface-secondary hover:bg-surface-primary border-2 border-border-primary hover:border-brand-primary rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+      className="group relative bg-bg-secondary hover:bg-bg-primary border-2 border-border-primary hover:border-brand-primary rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
     >
       <div className="flex flex-col items-center text-center">
         {/* Emoji Icon */}

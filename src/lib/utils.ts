@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import type { ArticleFrontmatter, Category } from '@/types/article';
 
 /**
  * Merge Tailwind CSS classes with clsx
@@ -49,4 +50,24 @@ export function calculateReadingTime(text: string): number {
 export function truncate(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength).trim() + '...';
+}
+
+/**
+ * Determine article category from frontmatter structure
+ * Checks for category-specific fields to identify the article type
+ * @param frontmatter - Article frontmatter object
+ * @returns Category identifier
+ */
+export function getCategoryFromFrontmatter(frontmatter: ArticleFrontmatter): Category {
+  // Check for category-specific fields
+  if ('teams' in frontmatter) return 'football';
+  if ('gpName' in frontmatter) return 'motogp';
+  if ('platform' in frontmatter && 'developer' in frontmatter) return 'gaming';
+  if ('director' in frontmatter) return 'movies';
+  if ('creator' in frontmatter) return 'tvshows';
+  if ('author' in frontmatter) return 'books';
+  if ('destination' in frontmatter) return 'travel';
+
+  // Fallback (should never happen with proper frontmatter)
+  return 'football';
 }

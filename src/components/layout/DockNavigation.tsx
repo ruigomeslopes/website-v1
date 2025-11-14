@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname, useParams } from 'next/navigation';
+import { useState } from 'react';
+import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { useLanguageSwitch } from '@/hooks/useLanguageSwitch';
+import { useTheme } from '@/hooks/useTheme';
 import {
   Home,
   Trophy,
@@ -34,51 +35,32 @@ interface DockItem {
 export function DockNavigation({ orientation = 'horizontal', className = '' }: DockNavigationProps) {
   const t = useTranslations();
   const pathname = usePathname();
-  const params = useParams();
-  const locale = params.locale as string;
+  const { currentLocale: locale, switchLanguage } = useLanguageSwitch();
+  const { theme, toggleTheme, mounted } = useTheme();
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // Get theme from localStorage or system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const initialTheme = (savedTheme as 'light' | 'dark') || systemTheme;
-    setTheme(initialTheme);
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
 
   const toggleLanguage = () => {
     const newLocale = locale === 'pt' ? 'en' : 'pt';
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
-    window.location.href = newPath;
+    switchLanguage(newLocale);
   };
 
   const dockItems: DockItem[] = [
-    { key: 'home', icon: Home, href: `/${locale}`, type: 'link' },
-    { key: 'football', icon: Trophy, href: `/${locale}/football`, type: 'link' },
-    { key: 'motogp', icon: Bike, href: `/${locale}/motogp`, type: 'link' },
-    { key: 'gaming', icon: Gamepad2, href: `/${locale}/gaming`, type: 'link' },
-    { key: 'books', icon: BookOpen, href: `/${locale}/books`, type: 'link' },
-    { key: 'movies', icon: Film, href: `/${locale}/movies`, type: 'link' },
-    { key: 'tvshows', icon: Tv, href: `/${locale}/tvshows`, type: 'link' },
-    { key: 'travel', icon: Plane, href: `/${locale}/travel`, type: 'link' },
+    { key: 'home', icon: Home, href: '/', type: 'link' },
+    { key: 'football', icon: Trophy, href: '/football', type: 'link' },
+    { key: 'motogp', icon: Bike, href: '/motogp', type: 'link' },
+    { key: 'gaming', icon: Gamepad2, href: '/gaming', type: 'link' },
+    { key: 'books', icon: BookOpen, href: '/books', type: 'link' },
+    { key: 'movies', icon: Film, href: '/movies', type: 'link' },
+    { key: 'tvshows', icon: Tv, href: '/tvshows', type: 'link' },
+    { key: 'travel', icon: Plane, href: '/travel', type: 'link' },
     { key: 'theme', icon: theme === 'light' ? Moon : Sun, action: toggleTheme, type: 'action' },
     { key: 'language', icon: Globe, action: toggleLanguage, type: 'action' }
   ];
 
   const isActive = (href?: string) => {
     if (!href) return false;
-    if (href === `/${locale}`) return pathname === `/${locale}`;
+    if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
   };
 
@@ -109,7 +91,7 @@ export function DockNavigation({ orientation = 'horizontal', className = '' }: D
           items-center
           ${isHorizontal ? 'gap-3 p-3' : 'gap-2 p-2'}
           rounded-2xl
-          bg-surface-secondary/80 backdrop-blur-lg
+          bg-bg-secondary/80 backdrop-blur-lg
           border border-border-primary
           shadow-lg
         `}
@@ -134,7 +116,7 @@ export function DockNavigation({ orientation = 'horizontal', className = '' }: D
                   transition-all duration-200 ease-out
                   ${active
                     ? 'bg-accent-primary text-white'
-                    : 'bg-surface-primary text-text-secondary hover:bg-accent-primary/10 hover:text-accent-primary'
+                    : 'bg-bg-primary text-text-secondary hover:bg-accent-primary/10 hover:text-accent-primary'
                   }
                   cursor-pointer
                 `}
@@ -151,7 +133,7 @@ export function DockNavigation({ orientation = 'horizontal', className = '' }: D
                 className={`
                   absolute ${isHorizontal ? 'bottom-full mb-2 left-1/2 -translate-x-1/2' : 'right-full mr-2 top-1/2 -translate-y-1/2'}
                   px-3 py-1.5 rounded-lg
-                  bg-gray-900 text-white text-sm font-medium
+                  bg-bg-tertiary text-white text-sm font-medium
                   whitespace-nowrap
                   opacity-0 group-hover:opacity-100
                   transition-opacity duration-200

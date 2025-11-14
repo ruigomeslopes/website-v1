@@ -14,12 +14,15 @@ interface HeroSplitScreenProps {
 
 export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
   const t = useTranslations();
-  const { showTopDock } = useScrollManager({
+  const { showTopDock, currentSection } = useScrollManager({
     coverThreshold: 50, // 50px = triggers immediately on scroll
   });
 
   // Show dock in hero when top dock is hidden (in cover section)
   const showDock = !showTopDock;
+
+  // Only show scroll hints in cover section (before user starts scrolling)
+  const showScrollHint = currentSection === 'cover';
 
   return (
     <section className="relative min-h-screen w-full flex flex-col">
@@ -47,10 +50,26 @@ export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
             <div className="pt-6">
               <SocialLinks orientation="horizontal" size="lg" />
             </div>
+
+            {/* Navigable Text */}
+            <div className="pt-8 mt-8 border-t border-border-primary space-y-4">
+              <NavigableText
+                text={t('homepage.navigableText.phrase1')}
+                className="text-base text-text-secondary leading-relaxed"
+              />
+              <NavigableText
+                text={t('homepage.navigableText.phrase2')}
+                className="text-base text-text-secondary leading-relaxed"
+              />
+              <NavigableText
+                text={t('homepage.navigableText.phrase3')}
+                className="text-base text-text-secondary leading-relaxed"
+              />
+            </div>
           </div>
 
           {/* Left Scroll Hint */}
-          <ScrollHint position="left" onClick={onScrollClick} />
+          <ScrollHint position="left" onClick={onScrollClick} isVisible={showScrollHint} />
         </div>
 
         {/* Right Side - Photo */}
@@ -69,7 +88,7 @@ export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
           <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10" />
 
           {/* Right Scroll Hint */}
-          <ScrollHint position="right" onClick={onScrollClick} />
+          <ScrollHint position="right" onClick={onScrollClick} isVisible={showScrollHint} />
         </div>
       </div>
 
