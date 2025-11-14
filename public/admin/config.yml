@@ -5,19 +5,19 @@
 local_backend: true
 
 # Backend configuration
+# Production: Uses Netlify Git Gateway with Netlify Identity authentication
+# Development: Uses local_backend proxy (npx decap-server)
 backend:
-  name: github
-  repo: ruilopes/website-v1
+  name: git-gateway
+  repo: ruigomeslopes/website-v1
   branch: main
-  # Use implicit authentication for local development
-  # For production, configure GitHub OAuth via GitHub repository settings
 
 # Media folder configuration
 media_folder: "public/uploads" # Where files will be stored
 public_folder: "/uploads" # URL path to access files
 
-# Site URL (update when deployed)
-site_url: https://ruilopes.github.io/website-v1
+# Site URL
+site_url: https://ruigomeslopes.github.io/website-v1
 # logo_url: /images/logo.png # Optional: Add your logo
 
 # Locale configuration
@@ -33,6 +33,8 @@ collections:
     label_singular: "Football Article"
     folder: "src/content/football"
     create: true
+    extension: "mdx"
+    format: "frontmatter"
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/football"
@@ -59,6 +61,8 @@ collections:
     label_singular: "MotoGP Article"
     folder: "src/content/motogp"
     create: true
+    extension: "mdx"
+    format: "frontmatter"
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/motogp"
@@ -85,6 +89,8 @@ collections:
     label_singular: "Gaming Review"
     folder: "src/content/gaming"
     create: true
+    extension: "mdx"
+    format: "frontmatter"
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/gaming"
@@ -113,6 +119,8 @@ collections:
     label_singular: "Book Review"
     folder: "src/content/books"
     create: true
+    extension: "mdx"
+    format: "frontmatter"
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/books"
@@ -142,6 +150,8 @@ collections:
     label_singular: "Movie Review"
     folder: "src/content/movies"
     create: true
+    extension: "mdx"
+    format: "frontmatter"
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/movies"
@@ -170,6 +180,8 @@ collections:
     label_singular: "TV Show Review"
     folder: "src/content/tvshows"
     create: true
+    extension: "mdx"
+    format: "frontmatter"
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/tvshows"
@@ -198,6 +210,8 @@ collections:
     label_singular: "Travel Diary"
     folder: "src/content/travel"
     create: true
+    extension: "mdx"
+    format: "frontmatter"
     slug: "{{locale}}/{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/travel"

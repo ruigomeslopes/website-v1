@@ -9,6 +9,9 @@
   <!-- Decap CMS Styles -->
   <link rel="stylesheet" href="https://unpkg.com/decap-cms@3.9.0/dist/decap-cms.css" />
 
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <!-- Custom CMS Styles (optional) -->
   <style>
     body {
@@ -48,6 +51,19 @@
     } else {
       // DOM is already loaded, initialize immediately
       initializeDecapCMS();
+    }
+  </script>
+
+  <!-- Netlify Identity Redirect Handler -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
     }
   </script>
 </body>
