@@ -4,6 +4,10 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Rui Lopes - Sports Journalist',
   description: 'Personal website and blog of Rui Lopes, aspiring sports journalist',
+  icons: {
+    icon: '/images/avatar.svg',
+    apple: '/images/avatar.svg',
+  },
 }
 
 export default function RootLayout({

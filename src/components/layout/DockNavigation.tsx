@@ -174,7 +174,12 @@ export function DockNavigation({ orientation = 'horizontal', className = '' }: D
           }
 
           return (
-            <button key={item.key} onClick={item.action} type="button">
+            <button
+              key={item.key}
+              onClick={item.action}
+              type="button"
+              aria-label={t(`dock.${item.key}`)}
+            >
               {itemContent}
             </button>
           );

@@ -67,7 +67,7 @@ export function DockTopBar({ isVisible }: DockTopBarProps) {
       className={`
         fixed top-0 left-0 right-0 z-50
         transition-transform duration-500 ease-out
-        ${isVisible ? 'translate-y-0' : '-translate-y-full'}
+        ${isVisible ? 'translate-y-0' : '-translate-y-full pointer-events-none'}
       `}
     >
       <div className="flex items-center justify-center gap-2 px-4 py-2 bg-bg-secondary/95 backdrop-blur-lg border-b border-border-primary shadow-md">

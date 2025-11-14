@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { useLanguageSwitch } from '@/hooks/useLanguageSwitch';
+import { useTheme } from '@/hooks/useTheme';
 import {
   Menu,
   X,
@@ -38,20 +39,11 @@ export function DockMobile({ className = '', forceHidden = false }: DockMobilePr
   const t = useTranslations();
   const pathname = usePathname();
   const { currentLocale: locale, switchLanguage } = useLanguageSwitch();
+  const { theme, toggleTheme, mounted } = useTheme();
 
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const initialTheme = (savedTheme as 'light' | 'dark') || systemTheme;
-    setTheme(initialTheme);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,13 +64,6 @@ export function DockMobile({ className = '', forceHidden = false }: DockMobilePr
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
 
   const toggleLanguage = () => {
     const newLocale = locale === 'pt' ? 'en' : 'pt';
