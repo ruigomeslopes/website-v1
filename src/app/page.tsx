@@ -18,7 +18,7 @@ export default function RootPage() {
     // Check if user has a stored preference
     const storedLocale = localStorage.getItem('preferredLocale')
 
-    let locale = 'pt' // default
+    let locale: 'pt' | 'en' = 'pt' // default
 
     if (storedLocale && (storedLocale === 'pt' || storedLocale === 'en')) {
       // Use stored preference
