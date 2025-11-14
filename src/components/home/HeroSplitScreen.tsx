@@ -7,6 +7,7 @@ import SocialLinks from './SocialLinks';
 import { DockNavigation } from '../layout/DockNavigation';
 import { ScrollHint } from './ScrollHint';
 import { useScrollManager } from '@/hooks/useScrollManager';
+import { getImagePath } from '@/utils/getImagePath';
 
 interface HeroSplitScreenProps {
   onScrollClick?: () => void;
@@ -76,7 +77,7 @@ export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
         <div className="relative overflow-hidden">
           {/* Professional Photo */}
           <Image
-            src="/images/rui-lopes-photo.jpg"
+            src={getImagePath("/images/rui-lopes-photo.jpg")}
             alt="Rui Lopes - Journalist and Storyteller"
             fill
             className="object-cover"
