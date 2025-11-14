@@ -37,5 +37,21 @@ CLAUDE.md
 PRD.md
 PROMPTS/
 PROGRESS.md
-*.png
 boas.md
+CMS_GUIDE.md
+DEPLOYMENT.md
+IMPLEMENTATION_ROADMAP.md
+SETUP.md
+ai.md
+julio.md
+prompt.md
+TESTING_PROMPT.md
+QUICK_TEST_PROMPT.txt
+
+# Development notes patterns
+*_PROMPT.md
+*_PROMPT.txt
+*.notes.md
+
+# Images (uploaded via CMS to /public/uploads/)
+*.png
