@@ -32,8 +32,9 @@ export default function RootPage() {
     // Store the preference
     localStorage.setItem('preferredLocale', locale)
 
-    // Redirect to the appropriate locale using window.location
-    window.location.href = `/${locale}`
+    // Redirect using relative URL (works with any basePath configuration)
+    // Relative path automatically resolves correctly in dev and prod
+    window.location.href = `./${locale}/`
   }, [mounted])
 
   // Show a minimal loading state while redirecting
