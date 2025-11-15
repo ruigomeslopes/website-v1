@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: 'Rui Lopes - Sports Journalist',
   description: 'Personal website and blog of Rui Lopes, aspiring sports journalist',
   icons: {
-    icon: '/website-v1/images/avatar.svg',
-    apple: '/website-v1/images/avatar.svg',
+    icon: '/images/avatar.svg',
+    apple: '/images/avatar.svg',
   },
 }
 
