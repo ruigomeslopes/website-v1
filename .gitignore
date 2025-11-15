@@ -55,3 +55,4 @@ QUICK_TEST_PROMPT.txt
 
 # Images (uploaded via CMS to /public/uploads/)
 *.png
+NETLIFY_SETUP.md
