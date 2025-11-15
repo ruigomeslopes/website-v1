@@ -1,0 +1,83 @@
+# Netlify Build Configuration
+# Optimized for Next.js static export with Decap CMS
+
+[build]
+  # Build command for Next.js static export
+  command = "npm run build"
+
+  # Output directory (Next.js exports to /out)
+  publish = "out"
+
+  # Environment variables for production build
+  [build.environment]
+    NODE_VERSION = "20"
+    NPM_VERSION = "10"
+
+# Decap CMS configuration
+# The admin interface will be available at https://your-site.netlify.app/admin
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+# SPA fallback for Next.js client-side routing
+# Ensures proper routing for all locale paths
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+  force = false
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache static assets for 1 year
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache JS/CSS with content hash
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Don't cache HTML files (for updates)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Deploy notifications (optional - configure in Netlify dashboard)
+# [build.processing]
+#   skip_processing = false
+
+# Deploy context-specific settings
+[context.production]
+  environment = { NEXT_PUBLIC_SITE_URL = "https://ruigomeslopes.netlify.app" }
+
+[context.deploy-preview]
+  # Preview deployments (for PRs)
+  command = "npm run build"
+
+[context.branch-deploy]
+  # Branch deployments
+  command = "npm run build"
+
+# Plugin: Enable Netlify Forms (if needed in the future)
+# [[plugins]]
+#   package = "@netlify/plugin-nextjs"
