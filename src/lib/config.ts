@@ -4,7 +4,7 @@
  */
 
 export const SITE_CONFIG = {
-  baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://ruilopes.github.io/website-v1',
+  baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://ruigomeslopes.netlify.app',
   siteName: 'Rui Lopes',
   author: {
     name: 'Rui Lopes',
