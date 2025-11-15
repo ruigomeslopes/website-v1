@@ -16,8 +16,8 @@ backend:
 media_folder: "public/uploads" # Where files will be stored
 public_folder: "/uploads" # URL path to access files
 
-# Site URL
-site_url: https://ruigomeslopes.github.io/website-v1
+# Site URL (Netlify production)
+site_url: https://ruigomeslopes.netlify.app
 # logo_url: /images/logo.png # Optional: Add your logo
 
 # Locale configuration
