@@ -35,7 +35,7 @@ collections:
     create: true
     extension: "mdx"
     format: "frontmatter"
-    slug: "{{locale}}/{{slug}}"
+    slug: "{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/football"
     public_folder: "/uploads/football"
@@ -63,7 +63,7 @@ collections:
     create: true
     extension: "mdx"
     format: "frontmatter"
-    slug: "{{locale}}/{{slug}}"
+    slug: "{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/motogp"
     public_folder: "/uploads/motogp"
@@ -91,7 +91,7 @@ collections:
     create: true
     extension: "mdx"
     format: "frontmatter"
-    slug: "{{locale}}/{{slug}}"
+    slug: "{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/gaming"
     public_folder: "/uploads/gaming"
@@ -121,7 +121,7 @@ collections:
     create: true
     extension: "mdx"
     format: "frontmatter"
-    slug: "{{locale}}/{{slug}}"
+    slug: "{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/books"
     public_folder: "/uploads/books"
@@ -152,7 +152,7 @@ collections:
     create: true
     extension: "mdx"
     format: "frontmatter"
-    slug: "{{locale}}/{{slug}}"
+    slug: "{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/movies"
     public_folder: "/uploads/movies"
@@ -182,7 +182,7 @@ collections:
     create: true
     extension: "mdx"
     format: "frontmatter"
-    slug: "{{locale}}/{{slug}}"
+    slug: "{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/tvshows"
     public_folder: "/uploads/tvshows"
@@ -212,7 +212,7 @@ collections:
     create: true
     extension: "mdx"
     format: "frontmatter"
-    slug: "{{locale}}/{{slug}}"
+    slug: "{{slug}}"
     path: "{{locale}}/{{slug}}"
     media_folder: "public/uploads/travel"
     public_folder: "/uploads/travel"
