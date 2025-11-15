@@ -5,10 +5,10 @@
 local_backend: true
 
 # Backend configuration
-# Production: Uses Netlify Git Gateway with Netlify Identity authentication
+# Production: Uses GitHub OAuth authentication (via Netlify provider)
 # Development: Uses local_backend proxy (npx decap-server)
 backend:
-  name: git-gateway
+  name: github
   repo: ruigomeslopes/website-v1
   branch: main
 
