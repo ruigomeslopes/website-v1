@@ -81,7 +81,6 @@ export function HeroSplitScreen({ onScrollClick }: HeroSplitScreenProps) {
             alt="Rui Lopes - Journalist and Storyteller"
             fill
             className="object-cover"
-            priority
             sizes="50vw"
           />
 

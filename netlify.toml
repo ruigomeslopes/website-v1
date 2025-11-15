@@ -20,15 +20,6 @@
   to = "/admin/index.html"
   status = 200
 
-# SPA fallback for Next.js client-side routing
-# Ensures proper routing for all locale paths
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
-  force = false
-
 # Security headers
 [[headers]]
   for = "/*"
