@@ -3,7 +3,7 @@ import { getArticleSlugs } from '@/lib/articles'
 import { locales } from '@/i18n'
 import type { Category } from '@/types/article'
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ruilopes.github.io/website-v1'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ruigomeslopes.netlify.app'
 const categories: Category[] = ['football', 'motogp', 'gaming', 'books', 'movies', 'tvshows', 'travel']
 
 // Force static export for GitHub Pages
